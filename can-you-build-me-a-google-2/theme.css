@@ -1,0 +1,3151 @@
+/* Sparx After Dark — presentation only. No maths content or answers are changed. */
+:root.sad-enabled {
+  color-scheme: dark;
+  --sad-shadow: 0 10px 30px rgba(0,0,0,.22);
+  scrollbar-color: color-mix(in srgb, var(--sad-text) 34%, var(--sad-bg)) var(--sad-bg);
+}
+
+/* Keep native scroll tracks and their lower corner part of the selected page
+   background, rather than leaving Sparx's pale grey strip at the side. */
+:root.sad-enabled ::-webkit-scrollbar {
+  background: var(--sad-bg) !important;
+}
+
+:root.sad-enabled ::-webkit-scrollbar-track,
+:root.sad-enabled ::-webkit-scrollbar-corner {
+  background: var(--sad-bg) !important;
+}
+
+:root.sad-enabled ::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--sad-text) 34%, var(--sad-bg)) !important;
+  border: 3px solid var(--sad-bg) !important;
+  border-radius: 999px !important;
+}
+
+
+:root.sad-enabled body,
+:root.sad-enabled #root,
+:root.sad-enabled app-root {
+  background: var(--sad-bg) !important;
+  color: var(--sad-text) !important;
+  font-family: var(--sad-font) !important;
+}
+
+:root.sad-enabled *,
+:root.sad-enabled *::before,
+:root.sad-enabled *::after { border-color: rgba(255,255,255,.11) !important; }
+
+/* Broad component rules work across Sparx's regularly changing component names. */
+:root.sad-enabled header,
+:root.sad-enabled nav,
+:root.sad-enabled aside,
+:root.sad-enabled [class*="header" i],
+:root.sad-enabled [class*="sidebar" i],
+:root.sad-enabled [class*="nav" i] {
+  background: var(--sad-ribbon) !important;
+  color: var(--sad-text) !important;
+}
+
+/* Current Sparx question pages use CSS-module names for these two layers. */
+:root.sad-enabled [class^="_TopBanner_"],
+:root.sad-enabled [class*=" _TopBanner_"] {
+  background: var(--sad-ribbon) !important;
+  background-color: var(--sad-ribbon) !important;
+  border-bottom-color: var(--sad-bg) !important;
+  box-shadow: none !important;
+}
+
+:root.sad-enabled [class^="_QDTaskDisplayContainer_"],
+:root.sad-enabled [class*=" _QDTaskDisplayContainer_"],
+:root.sad-enabled [class^="_QDTaskDisplayContainer_"]::before,
+:root.sad-enabled [class^="_QDTaskDisplayContainer_"]::after,
+:root.sad-enabled [class*=" _QDTaskDisplayContainer_"]::before,
+:root.sad-enabled [class*=" _QDTaskDisplayContainer_"]::after {
+  background: var(--sad-bg) !important;
+  border-top-color: var(--sad-bg) !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  min-height: 100%;
+}
+
+/* Sparx renders the pale diagonal artwork in this transition layer. */
+:root.sad-enabled [class^="_TransitionContainer_"],
+:root.sad-enabled [class*=" _TransitionContainer_"],
+:root.sad-enabled [class^="_TransitionContainer_"]::before,
+:root.sad-enabled [class^="_TransitionContainer_"]::after,
+:root.sad-enabled [class*=" _TransitionContainer_"]::before,
+:root.sad-enabled [class*=" _TransitionContainer_"]::after {
+  background: var(--sad-bg) !important;
+  background-color: var(--sad-bg) !important;
+  background-image: none !important;
+}
+
+:root.sad-enabled [class^="_TransitionPage_"],
+:root.sad-enabled [class*=" _TransitionPage_"] {
+  background: var(--sad-bg) !important;
+  background-color: var(--sad-bg) !important;
+  background-image: none !important;
+}
+
+/* Remove the extra coloured box directly around the question text. */
+:root.sad-enabled [class^="_QuestionScrollLabelContent_"],
+:root.sad-enabled [class*=" _QuestionScrollLabelContent_"],
+:root.sad-enabled [class^="_QuestionWrapper_"],
+:root.sad-enabled [class*=" _QuestionWrapper_"],
+:root.sad-enabled [class^="_QuestionMapper_"],
+:root.sad-enabled [class*=" _QuestionMapper_"] {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
+/* The rendered question panel itself. */
+:root.sad-enabled [class^="_Question_"],
+:root.sad-enabled [class*=" _Question_"] {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
+/* Let the scrolling question area meet the bottom action bar cleanly. */
+:root.sad-enabled [class^="_QuestionScrollableContent_"],
+:root.sad-enabled [class*=" _QuestionScrollableContent_"] {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  box-shadow: none !important;
+  margin-bottom: 0 !important;
+}
+
+:root.sad-enabled.sad-no-shadows section,
+:root.sad-enabled.sad-no-shadows article,
+:root.sad-enabled.sad-no-shadows [class*="card" i],
+:root.sad-enabled.sad-no-shadows [class*="panel" i],
+:root.sad-enabled.sad-no-shadows [class*="tile" i],
+:root.sad-enabled.sad-no-shadows [class*="question" i],
+:root.sad-enabled.sad-no-shadows [class*="dialog" i] {
+  box-shadow: none !important;
+}
+
+/* Personal Practice dashboard */
+:root.sad-enabled.sad-home [class^="_PageBackground_"],
+:root.sad-enabled.sad-home [class*=" _PageBackground_"],
+:root.sad-enabled.sad-home [class^="_PageGradient_"],
+:root.sad-enabled.sad-home [class*=" _PageGradient_"] {
+  background: var(--sad-bg) !important;
+  background-image: radial-gradient(circle at 75% 0%, color-mix(in srgb, var(--sad-surface) 82%, transparent), transparent 42%) !important;
+}
+
+:root.sad-enabled.sad-home [class^="_Sidebar_"],
+:root.sad-enabled.sad-home [class*=" _Sidebar_"] {
+  background: var(--sad-ribbon) !important;
+  border-right: 1px solid rgba(255,255,255,.09) !important;
+}
+
+:root.sad-enabled.sad-home [class^="_MainContent_"],
+:root.sad-enabled.sad-home [class*=" _MainContent_"] {
+  padding: clamp(28px, 4vw, 56px) !important;
+}
+
+:root.sad-enabled.sad-home [class^="_MaxWidth_"],
+:root.sad-enabled.sad-home [class*=" _MaxWidth_"] {
+  max-width: 960px !important;
+}
+
+:root.sad-enabled.sad-home [class^="_Title_"],
+:root.sad-enabled.sad-home [class*=" _Title_"] {
+  color: var(--sad-text) !important;
+  letter-spacing: -.035em;
+}
+
+:root.sad-enabled.sad-home [class^="_Card_u7ffw_"],
+:root.sad-enabled.sad-home [class*=" _Card_u7ffw_"] {
+  background: linear-gradient(115deg, var(--sad-surface), color-mix(in srgb, var(--sad-surface) 88%, var(--sad-ribbon))) !important;
+  border: 1px solid rgba(255,255,255,.10) !important;
+  border-radius: calc(var(--sad-radius) + 4px) !important;
+  box-shadow: 0 16px 34px rgba(0,0,0,.18) !important;
+  overflow: hidden !important;
+}
+
+:root.sad-enabled.sad-home [class^="_Card_u7ffw_"] > *,
+:root.sad-enabled.sad-home [class*=" _Card_u7ffw_"] > * { color: var(--sad-text) !important; }
+
+:root.sad-enabled.sad-home [class^="_Row_"],
+:root.sad-enabled.sad-home [class*=" _Row_"] {
+  background: var(--sad-surface) !important;
+  border: 1px solid rgba(255,255,255,.09) !important;
+  border-radius: var(--sad-radius) !important;
+  box-shadow: 0 5px 14px rgba(0,0,0,.12) !important;
+  color: var(--sad-text) !important;
+  margin-bottom: 9px !important;
+  transition: transform .16s ease, background-color .16s ease !important;
+}
+
+:root.sad-enabled.sad-home [class^="_Row_"] *,
+:root.sad-enabled.sad-home [class*=" _Row_"] * { color: var(--sad-text) !important; }
+
+:root.sad-enabled.sad-home [class^="_Row_"]:hover,
+:root.sad-enabled.sad-home [class*=" _Row_"]:hover {
+  background: color-mix(in srgb, var(--sad-surface) 86%, var(--sad-accent)) !important;
+  transform: translateX(4px);
+}
+
+:root.sad-enabled.sad-home [class^="_Chevron_"],
+:root.sad-enabled.sad-home [class*=" _Chevron_"] {
+  color: var(--sad-accent) !important;
+  fill: var(--sad-accent) !important;
+}
+
+/* Strong, component-specific home-menu refinements. */
+:root.sad-enabled.sad-home body [class^="_Sidebar_"],
+:root.sad-enabled.sad-home body [class*=" _Sidebar_"] {
+  background: var(--sad-ribbon) !important;
+  border-right: 1px solid rgba(255,255,255,.10) !important;
+}
+
+:root.sad-enabled.sad-home body [class^="_NavButton_"],
+:root.sad-enabled.sad-home body [class*=" _NavButton_"] {
+  background: transparent !important;
+  border-radius: 12px !important;
+  color: var(--sad-text) !important;
+  margin: 8px 10px !important;
+  min-height: 76px !important;
+  padding: 10px 6px !important;
+}
+
+:root.sad-enabled.sad-home body [class^="_NavButton_"][class*="_Selected_"],
+:root.sad-enabled.sad-home body [class*=" _NavButton_"][class*="_Selected_"] {
+  background: var(--sad-surface) !important;
+  box-shadow: inset 3px 0 0 var(--sad-accent) !important;
+}
+
+:root.sad-enabled.sad-home body [class^="_NavButtonImage_"],
+:root.sad-enabled.sad-home body [class*=" _NavButtonImage_"] {
+  display: block !important;
+  margin: 0 auto 7px !important;
+  opacity: .88;
+}
+
+:root.sad-enabled.sad-home body [class^="_NavButtonLabel_"],
+:root.sad-enabled.sad-home body [class*=" _NavButtonLabel_"] {
+  color: var(--sad-text) !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  line-height: 1.25 !important;
+  text-align: center !important;
+}
+
+:root.sad-enabled.sad-home body [class^="_Row_"],
+:root.sad-enabled.sad-home body [class*=" _Row_"] {
+  background: var(--sad-surface) !important;
+  border: 1px solid rgba(255,255,255,.09) !important;
+  color: var(--sad-text) !important;
+}
+
+/* Homework accordions */
+:root.sad-enabled.sad-homework [aria-expanded] {
+  background: var(--sad-accent) !important;
+  border: 1px solid color-mix(in srgb, var(--sad-accent) 72%, white) !important;
+  border-radius: var(--sad-radius) !important;
+  box-shadow: 0 6px 16px rgba(0,0,0,.14) !important;
+  color: #202124 !important;
+  font-weight: 800 !important;
+  min-height: 54px !important;
+  transition: filter .16s ease, transform .16s ease !important;
+}
+
+:root.sad-enabled.sad-homework [aria-expanded] *,
+:root.sad-enabled.sad-homework [aria-expanded] svg {
+  color: #202124 !important;
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+
+:root.sad-enabled.sad-homework [aria-expanded]:hover {
+  filter: brightness(1.06) !important;
+  transform: translateY(-1px) !important;
+}
+
+:root.sad-enabled.sad-homework [aria-expanded="true"] {
+  border-bottom-left-radius: 9px !important;
+  border-bottom-right-radius: 9px !important;
+}
+
+:root.sad-enabled.sad-homework [class^="_OlderHomeworkHeader_"],
+:root.sad-enabled.sad-homework [class*=" _OlderHomeworkHeader_"] {
+  background: var(--sad-accent) !important;
+  border-radius: var(--sad-radius) !important;
+  box-shadow: 0 7px 18px rgba(0,0,0,.16) !important;
+  color: #202124 !important;
+  margin: 14px 0 8px !important;
+}
+
+:root.sad-enabled.sad-homework [class^="_OlderHomeworkHeader_"] *,
+:root.sad-enabled.sad-homework [class*=" _OlderHomeworkHeader_"] * { color: #202124 !important; }
+
+/* Individual homework tasks */
+:root.sad-enabled.sad-homework [class^="_Task_"],
+:root.sad-enabled.sad-homework [class*=" _Task_"] {
+  background: var(--sad-surface) !important;
+  border: 1px solid rgba(255,255,255,.09) !important;
+  border-radius: calc(var(--sad-radius) - 2px) !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,.10) !important;
+  color: var(--sad-text) !important;
+  margin: 7px 0 !important;
+  transition: background-color .16s ease, transform .16s ease !important;
+}
+
+:root.sad-enabled.sad-homework [class^="_Task_"] *,
+:root.sad-enabled.sad-homework [class*=" _Task_"] * { color: var(--sad-text) !important; }
+
+:root.sad-enabled.sad-homework [class^="_Task_"]:hover,
+:root.sad-enabled.sad-homework [class*=" _Task_"]:hover {
+  background: color-mix(in srgb, var(--sad-surface) 90%, var(--sad-accent)) !important;
+  transform: translateX(3px) !important;
+}
+
+:root.sad-enabled.sad-homework [class^="_Task_"] button,
+:root.sad-enabled.sad-homework [class*=" _Task_"] button {
+  background: var(--sad-accent) !important;
+  color: #202124 !important;
+}
+
+:root.sad-enabled.sad-homework [class^="_Task_"] button *,
+:root.sad-enabled.sad-homework [class*=" _Task_"] button * { color: #202124 !important; }
+
+/* Welcome copy follows the existing Text picker. */
+:root.sad-enabled.sad-homework [class^="_Hello_"],
+:root.sad-enabled.sad-homework [class*=" _Hello_"],
+:root.sad-enabled.sad-homework [class^="_PackageTypeDescription_"],
+:root.sad-enabled.sad-homework [class*=" _PackageTypeDescription_"] {
+  color: var(--sad-text) !important;
+}
+
+/* Task Start controls use their own configurable action colour. */
+:root.sad-enabled.sad-homework [class^="_Task_"] [class^="_Chip_"],
+:root.sad-enabled.sad-homework [class^="_Task_"] [class*=" _Chip_"],
+:root.sad-enabled.sad-homework [class*=" _Task_"] [class^="_Chip_"],
+:root.sad-enabled.sad-homework [class*=" _Task_"] [class*=" _Chip_"] {
+  background: var(--sad-action) !important;
+  background-color: var(--sad-action) !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: #fff !important;
+}
+
+:root.sad-enabled.sad-homework [class^="_Task_"] [class^="_Chip_"] *,
+:root.sad-enabled.sad-homework [class^="_Task_"] [class*=" _Chip_"] *,
+:root.sad-enabled.sad-homework [class*=" _Task_"] [class^="_Chip_"] *,
+:root.sad-enabled.sad-homework [class*=" _Task_"] [class*=" _Chip_"] * { color: #fff !important; }
+
+/* Remove Sparx's pale inset framing around expanded homework lists. */
+:root.sad-enabled.sad-homework [class^="_AccordionRoot_"],
+:root.sad-enabled.sad-homework [class*=" _AccordionRoot_"],
+:root.sad-enabled.sad-homework [class^="_AccordionContent_"],
+:root.sad-enabled.sad-homework [class*=" _AccordionContent_"],
+:root.sad-enabled.sad-homework [class^="_CollapsibleContent_"],
+:root.sad-enabled.sad-homework [class*=" _CollapsibleContent_"] {
+  background: transparent !important;
+  border-color: rgba(255,255,255,.10) !important;
+  box-shadow: none !important;
+}
+
+/* A calm, image-free Personal Practice call-to-action. */
+:root.sad-enabled.sad-home [class^="_Card_u7ffw_"],
+:root.sad-enabled.sad-home [class*=" _Card_u7ffw_"] {
+  background: var(--sad-surface) !important;
+  background-image: none !important;
+  min-height: 132px !important;
+}
+
+:root.sad-enabled.sad-home [class^="_Card_u7ffw_"]::before,
+:root.sad-enabled.sad-home [class^="_Card_u7ffw_"]::after,
+:root.sad-enabled.sad-home [class*=" _Card_u7ffw_"]::before,
+:root.sad-enabled.sad-home [class*=" _Card_u7ffw_"]::after,
+:root.sad-enabled.sad-home [class^="_Card_u7ffw_"] img,
+:root.sad-enabled.sad-home [class*=" _Card_u7ffw_"] img,
+:root.sad-enabled.sad-home [class^="_Card_u7ffw_"] picture,
+:root.sad-enabled.sad-home [class*=" _Card_u7ffw_"] picture {
+  content: none !important;
+  display: none !important;
+  background-image: none !important;
+}
+
+/* Softer typography framing across the home dashboard. */
+:root.sad-enabled.sad-home [class^="_Header_"],
+:root.sad-enabled.sad-home [class*=" _Header_"] {
+  background: transparent !important;
+  box-shadow: none !important;
+  margin-bottom: 14px !important;
+  padding: 0 !important;
+}
+
+:root.sad-enabled.sad-home [class^="_Header_"] h1,
+:root.sad-enabled.sad-home [class^="_Header_"] h2,
+:root.sad-enabled.sad-home [class*=" _Header_"] h1,
+:root.sad-enabled.sad-home [class*=" _Header_"] h2 {
+  color: var(--sad-text) !important;
+  font-weight: 800 !important;
+  letter-spacing: -.04em !important;
+  margin: 0 !important;
+}
+
+:root.sad-enabled.sad-home [class^="_NavButton_"],
+:root.sad-enabled.sad-home [class*=" _NavButton_"] {
+  border-radius: 16px !important;
+}
+
+:root.sad-enabled.sad-home [class^="_Row_"],
+:root.sad-enabled.sad-home [class*=" _Row_"] {
+  border-radius: calc(var(--sad-radius) - 2px) !important;
+}
+
+/* Final spacing pass for the call-to-action and icon navigation. */
+:root.sad-enabled.sad-home [class^="_Content_u7ffw_"],
+:root.sad-enabled.sad-home [class*=" _Content_u7ffw_"] {
+  align-items: flex-start !important;
+  background: transparent !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 13px !important;
+  justify-content: center !important;
+  min-height: 132px !important;
+  padding: 24px 28px !important;
+}
+
+:root.sad-enabled.sad-home body [class^="_NavButton_"],
+:root.sad-enabled.sad-home body [class*=" _NavButton_"] {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+  height: 76px !important;
+  justify-content: center !important;
+}
+
+:root.sad-enabled.sad-home body [class^="_NavButtonImage_"],
+:root.sad-enabled.sad-home body [class*=" _NavButtonImage_"] {
+  height: 27px !important;
+  width: 27px !important;
+}
+
+:root.sad-enabled.sad-home body [class^="_NavButtonImage_"] img,
+:root.sad-enabled.sad-home body [class*=" _NavButtonImage_"] img {
+  height: 27px !important;
+  object-fit: contain !important;
+  width: 27px !important;
+}
+
+/* The supplied SVG icons render as harsh dark squares in the custom theme. */
+:root.sad-enabled.sad-home body [class^="_NavButtonIcon_"],
+:root.sad-enabled.sad-home body [class*=" _NavButtonIcon_"] {
+  display: none !important;
+}
+
+:root.sad-enabled.sad-home body [class^="_NavButton_"],
+:root.sad-enabled.sad-home body [class*=" _NavButton_"] {
+  align-items: center !important;
+  height: 54px !important;
+  margin: 7px 10px !important;
+  min-height: 54px !important;
+  padding: 8px 10px !important;
+}
+
+:root.sad-enabled.sad-home body [class^="_NavButtonLabel_"],
+:root.sad-enabled.sad-home body [class*=" _NavButtonLabel_"] {
+  letter-spacing: -.01em !important;
+  max-width: 100% !important;
+  overflow-wrap: anywhere !important;
+}
+
+/* Sparx paints the sidebar label as a separate blue block; flatten it. */
+:root.sad-enabled.sad-home body [class^="_NavButtonLabel_"],
+:root.sad-enabled.sad-home body [class*=" _NavButtonLabel_"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: var(--sad-text) !important;
+}
+
+/* The question-navigation strip and each task tile share one Surface colour. */
+:root.sad-enabled [class^="_TaskItemsContainer_"],
+:root.sad-enabled [class*=" _TaskItemsContainer_"],
+:root.sad-enabled [class^="_TaskItemLink_"],
+:root.sad-enabled [class*=" _TaskItemLink_"] {
+  background: var(--sad-surface) !important;
+  background-color: var(--sad-surface) !important;
+  color: var(--sad-text) !important;
+}
+
+:root.sad-enabled [class^="_TaskItemsContainer_"],
+:root.sad-enabled [class*=" _TaskItemsContainer_"] {
+  border-bottom: 0 !important;
+  outline: 0 !important;
+  position: relative !important;
+  z-index: 2;
+  box-shadow: 0 8px 0 var(--sad-bg) !important;
+}
+
+/* Keep Sparx's layout spacer, but hide its visible pale separator. */
+:root.sad-enabled [class^="_TaskItemsContainer_"]::after,
+:root.sad-enabled [class*=" _TaskItemsContainer_"]::after {
+  visibility: hidden !important;
+}
+
+
+:root.sad-enabled main,
+:root.sad-enabled [role="main"],
+:root.sad-enabled [class*="content" i],
+:root.sad-enabled [class*="page" i],
+:root.sad-enabled [class*="background" i] { background: var(--sad-bg) !important; }
+
+:root.sad-enabled section,
+:root.sad-enabled article,
+:root.sad-enabled [class*="card" i],
+:root.sad-enabled [class*="panel" i],
+:root.sad-enabled [class*="tile" i],
+:root.sad-enabled [class*="question" i],
+:root.sad-enabled [class*="dialog" i] {
+  background: var(--sad-surface) !important;
+  color: var(--sad-text) !important;
+  border-radius: var(--sad-radius) !important;
+  box-shadow: var(--sad-shadow);
+}
+
+:root.sad-enabled h1,
+:root.sad-enabled h2,
+:root.sad-enabled h3,
+:root.sad-enabled p,
+:root.sad-enabled label,
+:root.sad-enabled span,
+:root.sad-enabled li { color: var(--sad-text); }
+
+:root.sad-enabled a { color: var(--sad-accent) !important; }
+
+:root.sad-enabled button,
+:root.sad-enabled [role="button"],
+:root.sad-enabled input,
+:root.sad-enabled select,
+:root.sad-enabled textarea {
+  border-radius: calc(var(--sad-radius) - 3px) !important;
+  font-family: inherit !important;
+}
+
+:root.sad-enabled button,
+:root.sad-enabled [role="button"] {
+  background: var(--sad-accent) !important;
+  background-image: none !important;
+  color: #202124 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  font-weight: 800 !important;
+  letter-spacing: .01em;
+}
+
+:root.sad-enabled button:hover,
+:root.sad-enabled [role="button"]:hover { filter: brightness(1.08); transform: translateY(-1px); }
+
+/* Prevent nested action-label wrappers from inheriting the page Background colour. */
+:root.sad-enabled button *,
+:root.sad-enabled [role="button"] * {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: #202124 !important;
+}
+
+/* Sparx's ButtonBase draws an inset label layer with pseudo-elements. */
+:root.sad-enabled button::before,
+:root.sad-enabled button::after,
+:root.sad-enabled [role="button"]::before,
+:root.sad-enabled [role="button"]::after {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+/* ButtonBase's label is named Content; protect it from the generic content rule. */
+:root.sad-enabled button [class^="_Content_"],
+:root.sad-enabled button [class*=" _Content_"],
+:root.sad-enabled [role="button"] [class^="_Content_"],
+:root.sad-enabled [role="button"] [class*=" _Content_"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: #202124 !important;
+}
+
+:root.sad-enabled input,
+:root.sad-enabled select,
+:root.sad-enabled textarea {
+  background: #202124 !important;
+  color: var(--sad-text) !important;
+  border: 1px solid rgba(255,255,255,.16) !important;
+}
+
+:root.sad-enabled :focus-visible { outline: 3px solid color-mix(in srgb, var(--sad-accent) 75%, transparent) !important; outline-offset: 3px; }
+:root.sad-enabled.sad-dim-images img { filter: brightness(.82) saturate(.86); }
+:root.sad-enabled.sad-compact section,
+:root.sad-enabled.sad-compact article,
+:root.sad-enabled.sad-compact [class*="card" i] { padding: .75rem !important; margin-block: .5rem !important; }
+:root.sad-enabled.sad-reduce-motion *,
+:root.sad-enabled.sad-reduce-motion *::before,
+:root.sad-enabled.sad-reduce-motion *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+
+/* Keep Sparx's late generic card rules from re-creating a panel around text. */
+:root.sad-enabled [class^="_QuestionScrollLabelContent_"],
+:root.sad-enabled [class*=" _QuestionScrollLabelContent_"],
+:root.sad-enabled [class^="_QuestionWrapper_"],
+:root.sad-enabled [class*=" _QuestionWrapper_"] {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
+/* Final Homework pass: Sparx adds pale inset glows after its accordion opens. */
+:root.sad-enabled.sad-homework [class^="_AccordionRoot_"],
+:root.sad-enabled.sad-homework [class*=" _AccordionRoot_"],
+:root.sad-enabled.sad-homework [class^="_AccordionContent_"],
+:root.sad-enabled.sad-homework [class*=" _AccordionContent_"],
+:root.sad-enabled.sad-homework [class^="_CollapsibleContent_"],
+:root.sad-enabled.sad-homework [class*=" _CollapsibleContent_"] {
+  background: transparent !important;
+  border-color: rgba(255,255,255,.10) !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+:root.sad-enabled.sad-homework [class^="_AccordionRoot_"]::before,
+:root.sad-enabled.sad-homework [class^="_AccordionRoot_"]::after,
+:root.sad-enabled.sad-homework [class*=" _AccordionRoot_"]::before,
+:root.sad-enabled.sad-homework [class*=" _AccordionRoot_"]::after,
+:root.sad-enabled.sad-homework [class^="_AccordionContent_"]::before,
+:root.sad-enabled.sad-homework [class^="_AccordionContent_"]::after,
+:root.sad-enabled.sad-homework [class*=" _AccordionContent_"]::before,
+:root.sad-enabled.sad-homework [class*=" _AccordionContent_"]::after,
+:root.sad-enabled.sad-homework [class^="_CollapsibleContent_"]::before,
+:root.sad-enabled.sad-homework [class^="_CollapsibleContent_"]::after,
+:root.sad-enabled.sad-homework [class*=" _CollapsibleContent_"]::before,
+:root.sad-enabled.sad-homework [class*=" _CollapsibleContent_"]::after {
+  background: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+:root.sad-enabled.sad-homework [class^="_Task_"],
+:root.sad-enabled.sad-homework [class*=" _Task_"] {
+  box-shadow: 0 5px 14px rgba(0,0,0,.16) !important;
+}
+
+/* The remaining thick strip sits on Sparx's AccordionItem wrapper, outside the
+   accordion root/content layers.  Flatten that wrapper too, so the yellow
+   headers sit directly on the page rather than inside a pale-looking frame. */
+:root.sad-enabled.sad-homework [class*="AccordionItem_"] {
+  background: transparent !important;
+  border: 0 !important;
+  border-left: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+:root.sad-enabled.sad-homework [class*="AccordionItem_"]::before,
+:root.sad-enabled.sad-homework [class*="AccordionItem_"]::after {
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  content: none !important;
+}
+
+:root.sad-enabled.sad-homework [aria-expanded],
+:root.sad-enabled.sad-homework [class*="_OlderHomeworkHeader_"] {
+  box-shadow: none !important;
+}
+
+/* Question pages: avoid a second, darker canvas behind the prompt. */
+:root.sad-enabled [class^="_QuestionContainer_"],
+:root.sad-enabled [class*=" _QuestionContainer_"],
+:root.sad-enabled [class^="_QuestionScrollableContent_"],
+:root.sad-enabled [class*=" _QuestionScrollableContent_"],
+:root.sad-enabled [class^="_QuestionScrollLabel_"],
+:root.sad-enabled [class*=" _QuestionScrollLabel_"] {
+  background: var(--sad-bg) !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* The Previous control uses the same accent treatment as the other task actions. */
+:root.sad-enabled [class*="_PreviousButton_"],
+:root.sad-enabled [class*="_PreviousButton_"] [class*="_ButtonSecondary_"] {
+  background: var(--sad-accent) !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-radius: calc(var(--sad-radius) - 3px) !important;
+  box-shadow: none !important;
+  color: #202124 !important;
+}
+
+:root.sad-enabled [class*="_PreviousButton_"] * {
+  background: transparent !important;
+  border-radius: calc(var(--sad-radius) - 3px) !important;
+  box-shadow: none !important;
+  color: #202124 !important;
+}
+
+/* Video modal labels are copy, not separate pill controls. */
+:root.sad-enabled [role="dialog"] [class*="_DialogTitle_"],
+:root.sad-enabled [role="dialog"] [class*="_VideoTitle_"],
+:root.sad-enabled [role="dialog"] [class*="_Tip_"] {
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  color: var(--sad-text) !important;
+  padding: 0 !important;
+}
+
+:root.sad-enabled [role="dialog"] [class*="_Tip_"] {
+  color: var(--sad-accent) !important;
+  font-weight: 800 !important;
+}
+
+/* A deliberately small in-page control for distraction-free question work. */
+#sad-question-focus-button {
+  align-items: center !important;
+  background: var(--sad-accent) !important;
+  border: 0 !important;
+  border-radius: calc(var(--sad-radius) - 3px) !important;
+  bottom: 18px !important;
+  box-shadow: 0 8px 22px rgba(0,0,0,.24) !important;
+  color: #202124 !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  font-size: 0 !important;
+  height: 32px !important;
+  justify-content: center !important;
+  line-height: 0 !important;
+  min-height: 32px !important;
+  padding: 0 !important;
+  position: fixed !important;
+  right: 18px !important;
+  width: 32px !important;
+  z-index: 2147483646 !important;
+}
+
+#sad-question-focus-button:hover { filter: brightness(1.06) !important; }
+
+#sad-question-focus-button::before {
+  background: #202124 !important;
+  content: "" !important;
+  display: block !important;
+  flex: 0 0 14px !important;
+  height: 14px !important;
+  left: 50% !important;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.25' d='M8 3H3v5M3 3l6 6M16 3h5v5M21 3l-6 6M8 21H3v-5M3 21l6-6M16 21h5v-5M21 21l-6-6'/%3E%3C/svg%3E") center / contain no-repeat !important;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.25' d='M8 3H3v5M3 3l6 6M16 3h5v5M21 3l-6 6M8 21H3v-5M3 21l6-6M16 21h5v-5M21 21l-6-6'/%3E%3C/svg%3E") center / contain no-repeat !important;
+  margin: 0 !important;
+  position: absolute !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 14px !important;
+}
+
+/* Completion/transition screens use anchors styled as buttons, not actual buttons. */
+:root.sad-enabled [class^="_TransitionPage_"] a[class*="_ButtonBase_"],
+:root.sad-enabled [class*=" _TransitionPage_"] a[class*="_ButtonBase_"],
+:root.sad-enabled [class^="_TransitionPage_"] a[class*="_ButtonShared_"],
+:root.sad-enabled [class*=" _TransitionPage_"] a[class*="_ButtonShared_"] {
+  background: var(--sad-accent) !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-radius: calc(var(--sad-radius) - 3px) !important;
+  box-shadow: none !important;
+  color: #202124 !important;
+}
+
+:root.sad-enabled [class^="_TransitionPage_"] a[class*="_ButtonBase_"] *,
+:root.sad-enabled [class*=" _TransitionPage_"] a[class*="_ButtonBase_"] *,
+:root.sad-enabled [class^="_TransitionPage_"] a[class*="_ButtonShared_"] *,
+:root.sad-enabled [class*=" _TransitionPage_"] a[class*="_ButtonShared_"] * {
+  background: transparent !important;
+  background-image: none !important;
+  border-radius: inherit !important;
+  box-shadow: none !important;
+  color: #202124 !important;
+}
+
+/* Keep task/bookwork navigation and the question/action area; remove only chrome. */
+:root.sad-question-focus [class^="_TopBanner_"],
+:root.sad-question-focus [class*=" _TopBanner_"],
+:root.sad-question-focus > body > header,
+:root.sad-question-focus [class*="_QuestionContext_"] {
+  display: none !important;
+}
+
+:root.sad-question-focus [class^="_QDTaskDisplayContainer_"],
+:root.sad-question-focus [class*=" _QDTaskDisplayContainer_"] {
+  min-height: 100vh !important;
+  padding-top: 0 !important;
+}
+
+/* Task-summary screen: clear status, with a deliberate secondary/primary pair. */
+:root.sad-enabled [class*="TransitionPage_"] div[class*="SummaryProgress_"] {
+  align-items: center !important;
+  background: var(--sad-surface) !important;
+  border: 2px solid var(--sad-accent) !important;
+  border-radius: 50% !important;
+  box-shadow: none !important;
+  color: var(--sad-accent) !important;
+  display: inline-flex !important;
+  justify-content: center !important;
+}
+
+/* The completion circle is decorative duplication on the summary screen. */
+:root.sad-enabled [class*="TransitionPage_"] div[class*="SummaryProgress_"] {
+  display: none !important;
+}
+
+:root.sad-enabled [class*="TransitionPage_"] div[class*="SummaryProgress_"] * {
+  background: transparent !important;
+  box-shadow: none !important;
+  color: var(--sad-accent) !important;
+}
+
+:root.sad-enabled [class*="TransitionPage_"] a[class*="ButtonOutlined_"] {
+  background: var(--sad-surface) !important;
+  background-image: none !important;
+  border: 1px solid color-mix(in srgb, var(--sad-accent) 72%, transparent) !important;
+  border-radius: calc(var(--sad-radius) - 3px) !important;
+  box-shadow: none !important;
+  color: var(--sad-accent) !important;
+}
+
+:root.sad-enabled [class*="TransitionPage_"] a[class*="ButtonContained_"] {
+  background: var(--sad-accent) !important;
+  background-image: none !important;
+  border: 1px solid var(--sad-accent) !important;
+  border-radius: calc(var(--sad-radius) - 3px) !important;
+  box-shadow: none !important;
+  color: #202124 !important;
+}
+
+:root.sad-enabled [class*="TransitionPage_"] a[class*="ButtonOutlined_"] *,
+:root.sad-enabled [class*="TransitionPage_"] a[class*="ButtonContained_"] * {
+  background: transparent !important;
+  background-image: none !important;
+  border-radius: inherit !important;
+  box-shadow: none !important;
+}
+
+:root.sad-enabled [class*="TransitionPage_"] a[class*="ButtonOutlined_"] * {
+  color: var(--sad-accent) !important;
+}
+
+:root.sad-enabled [class*="TransitionPage_"] a[class*="ButtonContained_"] * {
+  color: #202124 !important;
+}
+
+/* The package completion icon inherits Sparx's old blue badge fill; render a simple tick instead. */
+:root.sad-enabled.sad-homework svg[class*="_PackageChipIcon_"],
+:root.sad-enabled.sad-homework [class*="_PackageChipIcon_"] svg {
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #202124 !important;
+  fill: #202124 !important;
+  stroke: #202124 !important;
+}
+
+:root.sad-enabled.sad-homework svg[class*="_PackageChipIcon_"] *,
+:root.sad-enabled.sad-homework [class*="_PackageChipIcon_"] svg * {
+  fill: #202124 !important;
+  stroke: #202124 !important;
+}
+
+/* Independent Learning topic launch rows. */
+:root.sad-enabled.sad-independent [class^="_Topic_"],
+:root.sad-enabled.sad-independent [class*=" _Topic_"] {
+  background: var(--sad-surface) !important;
+  border: 1px solid rgba(255,255,255,.10) !important;
+  border-radius: calc(var(--sad-radius) - 2px) !important;
+  box-shadow: 0 5px 14px rgba(0,0,0,.16) !important;
+  color: var(--sad-text) !important;
+  margin: 7px 0 !important;
+}
+
+:root.sad-enabled.sad-independent [class^="_Topic_"] *,
+:root.sad-enabled.sad-independent [class*=" _Topic_"] * {
+  background: transparent !important;
+  color: var(--sad-text) !important;
+}
+
+:root.sad-enabled.sad-independent [class^="_TopicRight_"],
+:root.sad-enabled.sad-independent [class*=" _TopicRight_"] {
+  color: var(--sad-action) !important;
+}
+
+:root.sad-enabled.sad-independent [class^="_TopicRight_"] svg,
+:root.sad-enabled.sad-independent [class*=" _TopicRight_"] svg {
+  color: var(--sad-action) !important;
+  fill: var(--sad-action) !important;
+  stroke: var(--sad-action) !important;
+}
+
+:root.sad-enabled.sad-independent [class^="_Topic_"]:hover,
+:root.sad-enabled.sad-independent [class*=" _Topic_"]:hover {
+  background: color-mix(in srgb, var(--sad-surface) 90%, var(--sad-accent)) !important;
+  transform: translateX(3px) !important;
+}
+
+/* Independent Learning search and result menu. */
+:root.sad-enabled.sad-independent [class^="_SearchContainer_"],
+:root.sad-enabled.sad-independent [class*=" _SearchContainer_"],
+:root.sad-enabled.sad-independent [class^="_TopFilterContainerSearch_"],
+:root.sad-enabled.sad-independent [class*=" _TopFilterContainerSearch_"] {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+:root.sad-enabled.sad-independent [class^="_SearchResults_"],
+:root.sad-enabled.sad-independent [class*=" _SearchResults_"] {
+  background: var(--sad-surface) !important;
+  border: 1px solid rgba(255,255,255,.10) !important;
+  border-radius: var(--sad-radius) !important;
+  box-shadow: 0 12px 28px rgba(0,0,0,.18) !important;
+  color: var(--sad-text) !important;
+}
+
+:root.sad-enabled.sad-independent [class^="_SearchResult_"],
+:root.sad-enabled.sad-independent [class*=" _SearchResult_"] {
+  background: color-mix(in srgb, var(--sad-surface) 90%, #202124) !important;
+  border: 1px solid rgba(255,255,255,.09) !important;
+  border-radius: calc(var(--sad-radius) - 3px) !important;
+  box-shadow: none !important;
+  color: var(--sad-text) !important;
+}
+
+:root.sad-enabled.sad-independent [class^="_SearchResult_"] *,
+:root.sad-enabled.sad-independent [class*=" _SearchResult_"] *,
+:root.sad-enabled.sad-independent [class^="_SearchSummary_"],
+:root.sad-enabled.sad-independent [class*=" _SearchSummary_"] {
+  background: transparent !important;
+  color: var(--sad-text) !important;
+}
+
+:root.sad-enabled.sad-independent [class^="_SearchResult_"]:hover,
+:root.sad-enabled.sad-independent [class*=" _SearchResult_"]:hover {
+  background: color-mix(in srgb, var(--sad-surface) 84%, var(--sad-accent)) !important;
+}
+
+/* Independent Learning package menus and their task tiles. */
+:root.sad-enabled.sad-independent [class^="_IndependentLearningPackageContainer_"],
+:root.sad-enabled.sad-independent [class*=" _IndependentLearningPackageContainer_"] {
+  background: var(--sad-surface) !important;
+  border: 1px solid rgba(255,255,255,.10) !important;
+  border-radius: var(--sad-radius) !important;
+  box-shadow: 0 12px 28px rgba(0,0,0,.18) !important;
+}
+
+:root.sad-enabled.sad-independent [class^="_IndependentLearningPackageContainer_"]::before,
+:root.sad-enabled.sad-independent [class^="_IndependentLearningPackageContainer_"]::after,
+:root.sad-enabled.sad-independent [class*=" _IndependentLearningPackageContainer_"]::before,
+:root.sad-enabled.sad-independent [class*=" _IndependentLearningPackageContainer_"]::after {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+:root.sad-enabled.sad-independent [class^="_IndependentLearningPackage_"],
+:root.sad-enabled.sad-independent [class*=" _IndependentLearningPackage_"] {
+  background: transparent !important;
+  color: var(--sad-text) !important;
+}
+
+:root.sad-enabled.sad-independent [class^="_IndependentLearningTask_"],
+:root.sad-enabled.sad-independent [class*=" _IndependentLearningTask_"] {
+  background: color-mix(in srgb, var(--sad-surface) 90%, #202124) !important;
+  border: 1px solid rgba(255,255,255,.09) !important;
+  border-radius: calc(var(--sad-radius) - 3px) !important;
+  box-shadow: none !important;
+  color: var(--sad-text) !important;
+}
+
+:root.sad-enabled.sad-independent [class^="_IndependentLearningTask_"] *,
+:root.sad-enabled.sad-independent [class*=" _IndependentLearningTask_"] * {
+  color: var(--sad-text) !important;
+}
+
+:root.sad-enabled.sad-independent [class^="_IndependentLearningPackageContainer_"] button,
+:root.sad-enabled.sad-independent [class*=" _IndependentLearningPackageContainer_"] button {
+  background: var(--sad-action) !important;
+  color: #fff !important;
+}
+
+:root.sad-enabled.sad-independent [class^="_IndependentLearningPackageContainer_"] button *,
+:root.sad-enabled.sad-independent [class*=" _IndependentLearningPackageContainer_"] button * {
+  color: #fff !important;
+}
+
+/* Keep Independent Learning's expandable menus visually aligned with Homework. */
+:root.sad-enabled.sad-independent [class^="_AccordionHeader_"],
+:root.sad-enabled.sad-independent [class*=" _AccordionHeader_"] {
+  background: var(--sad-accent) !important;
+  border: 1px solid color-mix(in srgb, var(--sad-accent) 72%, white) !important;
+  border-radius: var(--sad-radius) !important;
+  box-shadow: 0 6px 16px rgba(0,0,0,.14) !important;
+  color: #202124 !important;
+}
+
+:root.sad-enabled.sad-independent [class^="_AccordionHeader_"] *,
+:root.sad-enabled.sad-independent [class*=" _AccordionHeader_"] * {
+  background: transparent !important;
+  color: #202124 !important;
+}
+
+:root.sad-enabled.sad-independent [class^="_AccordionRoot_"],
+:root.sad-enabled.sad-independent [class*=" _AccordionRoot_"],
+:root.sad-enabled.sad-independent [class^="_AccordionContent_"],
+:root.sad-enabled.sad-independent [class*=" _AccordionContent_"],
+:root.sad-enabled.sad-independent [class^="_CollapsibleContent_"],
+:root.sad-enabled.sad-independent [class*=" _CollapsibleContent_"] {
+  background: transparent !important;
+  border-color: rgba(255,255,255,.10) !important;
+  box-shadow: none !important;
+}
+
+:root.sad-enabled.sad-independent [class^="_AccordionRoot_"] *,
+:root.sad-enabled.sad-independent [class*=" _AccordionRoot_"] *,
+:root.sad-enabled.sad-independent [class^="_AccordionContent_"] *,
+:root.sad-enabled.sad-independent [class*=" _AccordionContent_"] *,
+:root.sad-enabled.sad-independent [class^="_CollapsibleContent_"] *,
+:root.sad-enabled.sad-independent [class*=" _CollapsibleContent_"] * {
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+/* Catch remaining menu-tile variants that Sparx gives a Tile or Card class. */
+:root.sad-enabled.sad-independent [class*="tile" i],
+:root.sad-enabled.sad-independent [class*="card" i] {
+  background: var(--sad-surface) !important;
+  border: 1px solid rgba(255,255,255,.10) !important;
+  border-radius: calc(var(--sad-radius) - 2px) !important;
+  box-shadow: 0 5px 14px rgba(0,0,0,.16) !important;
+  color: var(--sad-text) !important;
+}
+
+/* Individual task squares inside an Independent Learning package. */
+:root.sad-enabled.sad-independent [class^="_IndependentLearningTaskItem_"],
+:root.sad-enabled.sad-independent [class*=" _IndependentLearningTaskItem_"] {
+  background: color-mix(in srgb, var(--sad-surface) 90%, #202124) !important;
+  border: 1px solid rgba(255,255,255,.10) !important;
+  border-radius: calc(var(--sad-radius) - 3px) !important;
+  box-shadow: none !important;
+  color: var(--sad-text) !important;
+}
+
+:root.sad-enabled.sad-independent [class^="_IndependentLearningTaskItem_"] *,
+:root.sad-enabled.sad-independent [class*=" _IndependentLearningTaskItem_"] * {
+  background: transparent !important;
+  color: var(--sad-text) !important;
+}
+
+:root.sad-enabled.sad-independent [class^="_IndependentLearningTaskItem_"] button,
+:root.sad-enabled.sad-independent [class*=" _IndependentLearningTaskItem_"] button,
+:root.sad-enabled.sad-independent [class^="_IndependentLearningTaskItem_"] [role="button"],
+:root.sad-enabled.sad-independent [class*=" _IndependentLearningTaskItem_"] [role="button"] {
+  background: var(--sad-action) !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: #fff !important;
+}
+
+:root.sad-enabled.sad-independent [class^="_IndependentLearningTaskItem_"] button *,
+:root.sad-enabled.sad-independent [class*=" _IndependentLearningTaskItem_"] button *,
+:root.sad-enabled.sad-independent [class^="_IndependentLearningTaskItem_"] [role="button"] *,
+:root.sad-enabled.sad-independent [class*=" _IndependentLearningTaskItem_"] [role="button"] * {
+  color: #fff !important;
+}
+
+/* Subject-menu tiles on the Independent Learning landing page. */
+:root.sad-enabled.sad-independent a[href*="/student/independentlearning/"][href*="/strands/"] {
+  background: var(--sad-surface) !important;
+  border: 1px solid rgba(255,255,255,.10) !important;
+  border-radius: var(--sad-radius) !important;
+  box-shadow: 0 5px 14px rgba(0,0,0,.16) !important;
+  color: var(--sad-text) !important;
+  text-decoration: none !important;
+}
+
+:root.sad-enabled.sad-independent a[href*="/student/independentlearning/"][href*="/strands/"] * {
+  color: var(--sad-text) !important;
+}
+
+:root.sad-enabled.sad-independent a[href*="/student/independentlearning/"][href*="/strands/"]:hover {
+  background: color-mix(in srgb, var(--sad-surface) 84%, var(--sad-accent)) !important;
+  border-color: color-mix(in srgb, var(--sad-accent) 50%, transparent) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Match Independent Learning's sidebar navigation to the cleaned Personal Practice menu. */
+:root.sad-enabled.sad-independent body [class^="_NavButton_"],
+:root.sad-enabled.sad-independent body [class*=" _NavButton_"] {
+  align-items: center !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+  color: var(--sad-text) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: 54px !important;
+  justify-content: center !important;
+  margin: 7px 10px !important;
+  min-height: 54px !important;
+  padding: 8px 10px !important;
+}
+
+:root.sad-enabled.sad-independent body [class^="_NavButton_"][class*="_Selected_"],
+:root.sad-enabled.sad-independent body [class*=" _NavButton_"][class*="_Selected_"] {
+  background: var(--sad-surface) !important;
+  box-shadow: inset 3px 0 0 var(--sad-accent) !important;
+}
+
+:root.sad-enabled.sad-independent body [class^="_NavButtonIcon_"],
+:root.sad-enabled.sad-independent body [class*=" _NavButtonIcon_"] {
+  display: none !important;
+}
+
+:root.sad-enabled.sad-independent body [class^="_NavButtonLabel_"],
+:root.sad-enabled.sad-independent body [class*=" _NavButtonLabel_"] {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: var(--sad-text) !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  letter-spacing: -.01em !important;
+  line-height: 1.25 !important;
+  text-align: center !important;
+}
+
+/* Independent Learning page title follows the existing Text colour picker. */
+:root.sad-enabled.sad-independent [class^="_Title_"],
+:root.sad-enabled.sad-independent [class*=" _Title_"] {
+  background: transparent !important;
+  background-image: none !important;
+  color: var(--sad-text) !important;
+}
+
+:root.sad-enabled.sad-independent [class^="_Header_"],
+:root.sad-enabled.sad-independent [class*=" _Header_"] {
+  background: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+/* Some package pages apply their pale glow to a nested wrapper and its pseudo-layers. */
+:root.sad-enabled.sad-independent [class*="_IndependentLearningPackage"],
+:root.sad-enabled.sad-independent [class*="_IndependentLearningPackage"] *,
+:root.sad-enabled.sad-independent [class*="_IndependentLearningPackage"]::before,
+:root.sad-enabled.sad-independent [class*="_IndependentLearningPackage"]::after,
+:root.sad-enabled.sad-independent [class*="_IndependentLearningPackage"] *::before,
+:root.sad-enabled.sad-independent [class*="_IndependentLearningPackage"] *::after {
+  box-shadow: none !important;
+  filter: none !important;
+  text-shadow: none !important;
+}
+
+/* Keep the completed label, but remove Sparx's mismatched package tick artwork. */
+:root.sad-enabled.sad-homework svg[class*="_PackageChipIcon_"],
+:root.sad-enabled.sad-homework [class*="_PackageChipIcon_"] svg {
+  display: none !important;
+}
+
+/* Topic rows use a separate grey SVG for their completion tick. Keep their stars and arrow. */
+:root.sad-enabled.sad-independent [class^="_TopicRight_"] svg[class*="_Gray_"],
+:root.sad-enabled.sad-independent [class*=" _TopicRight_"] svg[class*="_Gray_"] {
+  display: none !important;
+}
+
+/* Radix renders the account menu in a portal; theme the portal rather than the page beneath it. */
+:root.sad-enabled [data-radix-popper-content-wrapper],
+:root.sad-enabled [data-radix-popper-content-wrapper] > *,
+:root.sad-enabled [data-radix-popper-content-wrapper] [role="menu"] {
+  background: var(--sad-surface) !important;
+  border: 1px solid rgba(255,255,255,.10) !important;
+  border-radius: var(--sad-radius) !important;
+  box-shadow: 0 12px 28px rgba(0,0,0,.26) !important;
+  filter: none !important;
+}
+
+:root.sad-enabled [data-radix-popper-content-wrapper] [role="menuitem"],
+:root.sad-enabled [data-radix-popper-content-wrapper] a,
+:root.sad-enabled [data-radix-popper-content-wrapper] button {
+  background: transparent !important;
+  box-shadow: none !important;
+  color: var(--sad-text) !important;
+}
+
+:root.sad-enabled [data-radix-popper-content-wrapper] [role="menuitem"] *,
+:root.sad-enabled [data-radix-popper-content-wrapper] a *,
+:root.sad-enabled [data-radix-popper-content-wrapper] button * {
+  color: inherit !important;
+}
+
+:root.sad-enabled [data-radix-popper-content-wrapper] [role="menuitem"]:hover,
+:root.sad-enabled [data-radix-popper-content-wrapper] a:hover,
+:root.sad-enabled [data-radix-popper-content-wrapper] button:hover {
+  background: color-mix(in srgb, var(--sad-surface) 84%, var(--sad-accent)) !important;
+  filter: none !important;
+  transform: none !important;
+}
+
+/* A consistent, flush account-control group across Homework, Personal Practice and IL. */
+:root.sad-enabled [class^="_BannerRight_"],
+:root.sad-enabled [class*=" _BannerRight_"] {
+  align-items: stretch !important;
+  gap: 0 !important;
+}
+
+:root.sad-enabled [class*="_NotificationsIconContainer_"],
+:root.sad-enabled [class*="_MenuButton_"] {
+  align-items: center !important;
+  background: var(--sad-accent) !important;
+  box-shadow: none !important;
+  color: #202124 !important;
+  display: inline-flex !important;
+  height: 50px !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  min-width: 52px !important;
+  padding: 0 15px !important;
+  position: relative !important;
+  transform: none !important;
+}
+
+:root.sad-enabled [class*="_NotificationsIconContainer_"] {
+  border-radius: 12px 0 0 12px !important;
+  margin-left: 12px !important;
+}
+
+:root.sad-enabled [class*="_MenuButton_"] {
+  border-left: 1px solid rgba(32,33,36,.22) !important;
+  border-radius: 0 12px 12px 0 !important;
+}
+
+/* Replace Sparx's inconsistent header artwork with simple, crisp CSS icons. */
+:root.sad-enabled [class*="_NotificationsIconContainer_"] img,
+:root.sad-enabled [class*="_NotificationsIconContainer_"] svg,
+:root.sad-enabled [class*="_MenuButton_"] svg,
+:root.sad-enabled [class*="_MenuButton_"] img {
+  display: none !important;
+}
+
+:root.sad-enabled [class*="_NotificationsIconContainer_"]::after {
+  border: 2px solid #202124 !important;
+  border-radius: 8px 8px 5px 5px !important;
+  content: "" !important;
+  height: 14px !important;
+  transform: translateY(-1px) !important;
+  width: 13px !important;
+}
+
+:root.sad-enabled [class*="_NotificationsIconContainer_"]::before {
+  background: #202124 !important;
+  border-radius: 50% !important;
+  content: "" !important;
+  height: 3px !important;
+  left: calc(50% - 1px) !important;
+  position: absolute !important;
+  top: 33px !important;
+  width: 3px !important;
+}
+
+:root.sad-enabled [class*="_MenuButton_"]::after {
+  color: #202124 !important;
+  content: "☰" !important;
+  font-size: 22px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  margin-left: 9px !important;
+}
+
+/* Restore Sparx's notification artwork; retain the single, softly divided control group. */
+:root.sad-enabled [class*="_NotificationsIconContainer_"] img,
+:root.sad-enabled [class*="_NotificationsIconContainer_"] svg {
+  display: block !important;
+  height: 22px !important;
+  width: 22px !important;
+}
+
+:root.sad-enabled [class*="_NotificationsIconContainer_"]::before,
+:root.sad-enabled [class*="_NotificationsIconContainer_"]::after {
+  content: none !important;
+}
+
+:root.sad-enabled [class*="_NotificationsIconContainer_"] {
+  border-radius: 8px 0 0 8px !important;
+}
+
+:root.sad-enabled [class*="_MenuButton_"] {
+  border-left: 1px solid rgba(32,33,36,.16) !important;
+  border-radius: 0 8px 8px 0 !important;
+}
+
+/* Rewards uses an outlined ButtonBase whose inner Content layer otherwise stays white. */
+:root.sad-enabled button[class*="_ButtonBase_"],
+:root.sad-enabled a > button[class*="_ButtonBase_"],
+:root.sad-enabled button[class*="_ButtonOutlined_"] {
+  background: var(--sad-accent) !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: #202124 !important;
+}
+
+:root.sad-enabled button[class*="_ButtonBase_"] [class^="_Content_"],
+:root.sad-enabled button[class*="_ButtonBase_"] [class*=" _Content_"],
+:root.sad-enabled button[class*="_ButtonOutlined_"] [class^="_Content_"],
+:root.sad-enabled button[class*="_ButtonOutlined_"] [class*=" _Content_"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  color: #202124 !important;
+}
+
+/* The Rewards CTA is an anchor styled as a ButtonBase, not a native button.
+   Give it the same calm outlined treatment without altering its link action. */
+:root.sad-enabled [class*="RewardsPanel" i] a[href="/student/leaderboard"] {
+  align-items: center !important;
+  background: var(--sad-surface) !important;
+  background-image: none !important;
+  border: 1px solid color-mix(in srgb, var(--sad-accent) 72%, transparent) !important;
+  border-radius: calc(var(--sad-radius) - 3px) !important;
+  box-shadow: none !important;
+  color: var(--sad-accent) !important;
+  display: inline-flex !important;
+  justify-content: center !important;
+  text-decoration: none !important;
+}
+
+:root.sad-enabled [class*="RewardsPanel" i] a[href="/student/leaderboard"] *,
+:root.sad-enabled [class*="RewardsPanel" i] a[href="/student/leaderboard"]::before,
+:root.sad-enabled [class*="RewardsPanel" i] a[href="/student/leaderboard"]::after {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  color: var(--sad-accent) !important;
+}
+
+:root.sad-enabled [class*="RewardsPanel" i] a[href="/student/leaderboard"]:hover {
+  background: color-mix(in srgb, var(--sad-surface) 84%, var(--sad-accent)) !important;
+  color: var(--sad-text) !important;
+  transform: translateY(-1px) !important;
+}
+
+:root.sad-enabled [class*="RewardsPanel" i] a[href="/student/leaderboard"]:hover * {
+  color: var(--sad-text) !important;
+}
+
+/* Independent Learning's activity history is a timeline rather than a tile
+   grid.  Keep its chronology clear, but give every entry a calm dark surface. */
+:root.sad-enabled.sad-learning-activity [class*="ActivityFeed" i] {
+  background: transparent !important;
+  color: var(--sad-text) !important;
+}
+
+:root.sad-enabled.sad-learning-activity [class*="ActivityFeed" i] [class*="ActivityDay" i],
+:root.sad-enabled.sad-learning-activity [class*="ActivityFeed" i] [class*="Timeline" i] {
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+:root.sad-enabled.sad-learning-activity [class*="ActivityFeed" i] [class*="Timeline" i]::before,
+:root.sad-enabled.sad-learning-activity [class*="ActivityFeed" i] [class*="Timeline" i]::after {
+  background: color-mix(in srgb, var(--sad-accent) 48%, transparent) !important;
+}
+
+:root.sad-enabled.sad-learning-activity [class*="ActivityFeed" i] [class*="ActivityDay" i] > :not(a),
+:root.sad-enabled.sad-learning-activity [class*="ActivityFeed" i] [class*="ActivityDay" i] > :not(a) * {
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+:root.sad-enabled.sad-learning-activity [class*="ActivityFeed" i] a[href*="/student/"] {
+  background: var(--sad-surface) !important;
+  background-image: none !important;
+  border: 1px solid rgba(255,255,255,.11) !important;
+  border-radius: calc(var(--sad-radius) - 2px) !important;
+  box-shadow: 0 5px 14px rgba(0,0,0,.16) !important;
+  color: var(--sad-text) !important;
+  text-decoration: none !important;
+}
+
+:root.sad-enabled.sad-learning-activity [class*="ActivityFeed" i] a[href*="/student/"] * {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  color: var(--sad-text) !important;
+}
+
+:root.sad-enabled.sad-learning-activity [class*="ActivityFeed" i] a[href*="/student/"]:hover {
+  background: color-mix(in srgb, var(--sad-surface) 86%, var(--sad-accent)) !important;
+  border-color: color-mix(in srgb, var(--sad-accent) 54%, transparent) !important;
+  transform: translateX(3px) !important;
+}
+
+:root.sad-enabled.sad-learning-activity [class*="ActivityFeed" i] [class*="Date" i],
+:root.sad-enabled.sad-learning-activity [class*="ActivityFeed" i] [class*="Status" i] {
+  background: transparent !important;
+  color: color-mix(in srgb, var(--sad-text) 66%, transparent) !important;
+}
+
+:root.sad-enabled.sad-learning-activity [class*="ActivityFeed" i] [class*="Chip" i] {
+  background: color-mix(in srgb, var(--sad-surface) 86%, var(--sad-accent)) !important;
+  border: 1px solid color-mix(in srgb, var(--sad-accent) 46%, transparent) !important;
+  border-radius: calc(var(--sad-radius) - 5px) !important;
+  box-shadow: none !important;
+  color: var(--sad-accent) !important;
+}
+
+:root.sad-enabled.sad-learning-activity [class*="ActivityFeed" i] [class*="Chip" i] * {
+  color: inherit !important;
+}
+
+:root.sad-enabled.sad-learning-activity [class*="ActivityFeed" i] [class*="ActivityRight" i] {
+  color: color-mix(in srgb, var(--sad-text) 66%, transparent) !important;
+}
+
+:root.sad-enabled.sad-learning-activity [class*="ActivityFeed" i] [class*="ActivityRight" i] svg {
+  color: var(--sad-action) !important;
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+
+/* Header controls use different module names on some Homework views; the labels are stable. */
+:root.sad-enabled button[aria-label*="ustomise options"],
+:root.sad-enabled button[aria-label*="ustomize options"],
+:root.sad-enabled button[aria-label*="Notifications"] {
+  align-self: stretch !important;
+  background: var(--sad-accent) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  height: 100% !important;
+  min-height: 52px !important;
+  transform: none !important;
+}
+
+:root.sad-enabled button[aria-label*="ustomise options"],
+:root.sad-enabled button[aria-label*="ustomize options"] {
+  border-left: 1px solid rgba(32,33,36,.16) !important;
+  min-width: 116px !important;
+}
+
+:root.sad-enabled button[aria-label*="Notifications"] {
+  margin-left: 12px !important;
+  min-width: 54px !important;
+}
+
+/* Homework's Menu label is a separately painted span; flatten it into the control. */
+:root.sad-enabled [class^="_MenuText_"],
+:root.sad-enabled [class*=" _MenuText_"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: #202124 !important;
+}
+
+/* The supplied notification image is inconsistent on Homework; use a stable, minimal bell instead. */
+:root.sad-enabled [class*="_NotificationsIconContainer_"] img,
+:root.sad-enabled [class*="_NotificationsIconContainer_"] svg {
+  display: none !important;
+}
+
+:root.sad-enabled [class*="_NotificationsIconContainer_"]::before {
+  background: transparent !important;
+  border: 2px solid #202124 !important;
+  border-radius: 8px 8px 4px 4px !important;
+  content: "" !important;
+  display: block !important;
+  height: 13px !important;
+  left: calc(50% - 7px) !important;
+  position: absolute !important;
+  top: 14px !important;
+  width: 14px !important;
+}
+
+:root.sad-enabled [class*="_NotificationsIconContainer_"]::after {
+  background: #202124 !important;
+  border-radius: 50% !important;
+  content: "" !important;
+  display: block !important;
+  height: 4px !important;
+  left: calc(50% - 2px) !important;
+  position: absolute !important;
+  top: 31px !important;
+  transform: none !important;
+  width: 4px !important;
+}
+
+/* Restore the supplied icon and make Homework's two header controls one flush rectangle. */
+:root.sad-enabled.sad-homework [class*="_NotificationsIconContainer_"] img {
+  display: block !important;
+  filter: none !important;
+  height: 22px !important;
+  object-fit: contain !important;
+  width: 22px !important;
+}
+
+:root.sad-enabled.sad-homework [class*="_NotificationsIconContainer_"]::before,
+:root.sad-enabled.sad-homework [class*="_NotificationsIconContainer_"]::after {
+  content: none !important;
+}
+
+:root.sad-enabled.sad-homework [class*="_NotificationsIconContainer_"],
+:root.sad-enabled.sad-homework [class*="_MenuButton_"] {
+  border-radius: 0 !important;
+  height: 100% !important;
+  min-height: 52px !important;
+}
+
+:root.sad-enabled.sad-homework [class*="_MenuButton_"] {
+  border-left: 1px solid rgba(32,33,36,.16) !important;
+}
+
+/* Personal Practice and Independent Learning share the same joined controls, using the Text colour. */
+:root.sad-enabled.sad-home [class*="_NotificationsIconContainer_"],
+:root.sad-enabled.sad-home [class*="_MenuButton_"],
+:root.sad-enabled.sad-independent [class*="_NotificationsIconContainer_"],
+:root.sad-enabled.sad-independent [class*="_MenuButton_"] {
+  background: var(--sad-accent) !important;
+  border-radius: 0 !important;
+  color: #202124 !important;
+  height: 100% !important;
+  min-height: 52px !important;
+}
+
+:root.sad-enabled.sad-home [class*="_NotificationsIconContainer_"],
+:root.sad-enabled.sad-independent [class*="_NotificationsIconContainer_"] {
+  margin-left: 12px !important;
+}
+
+:root.sad-enabled.sad-home [class*="_MenuButton_"],
+:root.sad-enabled.sad-independent [class*="_MenuButton_"] {
+  border-left: 1px solid color-mix(in srgb, var(--sad-ribbon) 18%, transparent) !important;
+}
+
+:root.sad-enabled.sad-home [class*="_NotificationsIconContainer_"] img,
+:root.sad-enabled.sad-independent [class*="_NotificationsIconContainer_"] img {
+  display: block !important;
+  filter: none !important;
+  height: 22px !important;
+  object-fit: contain !important;
+  width: 22px !important;
+}
+
+:root.sad-enabled.sad-home [class*="_NotificationsIconContainer_"]::before,
+:root.sad-enabled.sad-home [class*="_NotificationsIconContainer_"]::after,
+:root.sad-enabled.sad-independent [class*="_NotificationsIconContainer_"]::before,
+:root.sad-enabled.sad-independent [class*="_NotificationsIconContainer_"]::after {
+  content: none !important;
+}
+
+:root.sad-enabled.sad-home [class*="_MenuText_"],
+:root.sad-enabled.sad-independent [class*="_MenuText_"] {
+  color: #202124 !important;
+}
+
+/* Homework notification control: no independent glow or shadow. */
+:root.sad-enabled.sad-homework [class*="_NotificationsIconContainer_"],
+:root.sad-enabled.sad-homework [class*="_NotificationsIconContainer_"]::before,
+:root.sad-enabled.sad-homework [class*="_NotificationsIconContainer_"]::after {
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+/* A compact, recognisable bell that follows the user-selected Background colour on every learning page. */
+:root.sad-enabled [class*="_NotificationsIconContainer_"] {
+  align-self: stretch !important;
+  background: var(--sad-bg) !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  border-right: 1px solid rgba(255,255,255,.14) !important;
+  box-shadow: none !important;
+  height: 100% !important;
+  margin-left: 12px !important;
+  min-height: 52px !important;
+  min-width: 46px !important;
+  padding: 0 !important;
+  position: relative !important;
+}
+
+:root.sad-enabled [class*="_NotificationsIconContainer_"] img,
+:root.sad-enabled [class*="_NotificationsIconContainer_"] svg {
+  display: none !important;
+}
+
+:root.sad-enabled [class*="_NotificationsIconContainer_"]::before {
+  background: var(--sad-text) !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  content: "" !important;
+  display: block !important;
+  height: 18px !important;
+  left: calc(50% - 9px) !important;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.2' d='M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4'/%3E%3C/svg%3E") center / contain no-repeat !important;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.2' d='M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4'/%3E%3C/svg%3E") center / contain no-repeat !important;
+  position: absolute !important;
+  top: calc(50% - 9px) !important;
+  transform: none !important;
+  width: 18px !important;
+}
+
+:root.sad-enabled [class*="_NotificationsIconContainer_"]::after {
+  content: none !important;
+}
+
+:root.sad-enabled.sad-homework [class^="_Task_"]::before,
+:root.sad-enabled.sad-homework [class^="_Task_"]::after,
+:root.sad-enabled.sad-homework [class*=" _Task_"]::before,
+:root.sad-enabled.sad-homework [class*=" _Task_"]::after {
+  box-shadow: none !important;
+}
+
+/* Completed lesson chips are white in Sparx's light theme; keep their status clear without the glare. */
+:root.sad-enabled.sad-homework [class*="_Chip_"][class*="_Complete_"],
+:root.sad-enabled.sad-homework [class*=" _Chip_"][class*=" _Complete_"] {
+  background: var(--sad-surface) !important;
+  background-image: none !important;
+  border: 1px solid rgba(49, 205, 140, .48) !important;
+  box-shadow: none !important;
+  color: #31cd8c !important;
+}
+
+:root.sad-enabled.sad-homework [class*="_Chip_"][class*="_Complete_"] *,
+:root.sad-enabled.sad-homework [class*=" _Chip_"][class*=" _Complete_"] * {
+  background: transparent !important;
+  color: #31cd8c !important;
+}
+
+/* Sparx nests the remaining pale glow inside the accordion body, rather than on the body itself. */
+:root.sad-enabled.sad-homework [class^="_AccordionRoot_"] *,
+:root.sad-enabled.sad-homework [class*=" _AccordionRoot_"] *,
+:root.sad-enabled.sad-homework [class^="_AccordionContent_"] *,
+:root.sad-enabled.sad-homework [class*=" _AccordionContent_"] *,
+:root.sad-enabled.sad-homework [class^="_CollapsibleContent_"] *,
+:root.sad-enabled.sad-homework [class*=" _CollapsibleContent_"] * {
+  box-shadow: none !important;
+  filter: none !important;
+  text-shadow: none !important;
+}
+
+/* Keep just the intended, dark task-row separation. */
+:root.sad-enabled.sad-homework [class^="_Task_"],
+:root.sad-enabled.sad-homework [class*=" _Task_"] {
+  box-shadow: 0 5px 14px rgba(0,0,0,.16) !important;
+}
+
+/* True reduce-motion mode: nothing slides, fades, bounces, or smooth-scrolls. */
+:root.sad-enabled.sad-reduce-motion,
+:root.sad-enabled.sad-reduce-motion *,
+:root.sad-enabled.sad-reduce-motion *::before,
+:root.sad-enabled.sad-reduce-motion *::after {
+  animation: none !important;
+  animation-delay: 0s !important;
+  animation-duration: 0s !important;
+  scroll-behavior: auto !important;
+  transition: none !important;
+  transition-delay: 0s !important;
+  transition-duration: 0s !important;
+}
+
+:root.sad-enabled.sad-reduce-motion button:hover,
+:root.sad-enabled.sad-reduce-motion [role="button"]:hover,
+:root.sad-enabled.sad-reduce-motion a:hover {
+  filter: none !important;
+  transform: none !important;
+}
+
+/* Feedback colours are user-selectable while preserving clear right/wrong states. */
+:root.sad-enabled [class*="correct" i],
+:root.sad-enabled [class*="success" i],
+:root.sad-enabled [data-state="correct" i],
+:root.sad-enabled [data-status="correct" i] {
+  background-color: color-mix(in srgb, var(--sad-surface) 78%, var(--sad-correct)) !important;
+  border-color: color-mix(in srgb, var(--sad-correct) 72%, white) !important;
+  border-radius: var(--sad-radius) !important;
+  box-shadow: none !important;
+  color: var(--sad-text) !important;
+  overflow: hidden !important;
+}
+
+:root.sad-enabled [class*="incorrect" i],
+:root.sad-enabled [class*="wrong" i],
+:root.sad-enabled [class*="error" i],
+:root.sad-enabled [data-state="incorrect" i],
+:root.sad-enabled [data-status="incorrect" i] {
+  background-color: color-mix(in srgb, var(--sad-surface) 78%, var(--sad-incorrect)) !important;
+  border-color: color-mix(in srgb, var(--sad-incorrect) 72%, white) !important;
+  border-radius: var(--sad-radius) !important;
+  box-shadow: none !important;
+  color: var(--sad-text) !important;
+  overflow: hidden !important;
+}
+
+/* Some Sparx feedback wrappers hold the colour on a child element. Round the whole notice too. */
+:root.sad-enabled [class*="feedback" i] {
+  border-radius: var(--sad-radius) !important;
+  overflow: hidden !important;
+}
+
+:root.sad-enabled [class*="correct" i] svg,
+:root.sad-enabled [class*="success" i] svg,
+:root.sad-enabled [data-state="correct" i] svg,
+:root.sad-enabled [data-status="correct" i] svg {
+  color: var(--sad-correct) !important;
+}
+
+:root.sad-enabled [class*="incorrect" i] svg,
+:root.sad-enabled [class*="wrong" i] svg,
+:root.sad-enabled [class*="error" i] svg,
+:root.sad-enabled [data-state="incorrect" i] svg,
+:root.sad-enabled [data-status="incorrect" i] svg {
+  color: var(--sad-incorrect) !important;
+}
+
+:root.sad-enabled [aria-invalid="true"] {
+  border-color: var(--sad-incorrect) !important;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--sad-incorrect) 20%, transparent) !important;
+}
+
+/* Calm mode keeps the user's selected colours, but makes both fills gentler. */
+:root.sad-enabled.sad-calm-errors [class*="correct" i],
+:root.sad-enabled.sad-calm-errors [class*="success" i],
+:root.sad-enabled.sad-calm-errors [data-state="correct" i],
+:root.sad-enabled.sad-calm-errors [data-status="correct" i],
+:root.sad-enabled.sad-calm-errors [class*="incorrect" i],
+:root.sad-enabled.sad-calm-errors [class*="wrong" i],
+:root.sad-enabled.sad-calm-errors [class*="error" i],
+:root.sad-enabled.sad-calm-errors [data-state="incorrect" i],
+:root.sad-enabled.sad-calm-errors [data-status="incorrect" i] {
+  background-color: color-mix(in srgb, var(--sad-surface) 88%, var(--sad-incorrect)) !important;
+}
+
+:root.sad-enabled.sad-calm-errors [class*="correct" i],
+:root.sad-enabled.sad-calm-errors [class*="success" i],
+:root.sad-enabled.sad-calm-errors [data-state="correct" i],
+:root.sad-enabled.sad-calm-errors [data-status="correct" i] {
+  background-color: color-mix(in srgb, var(--sad-surface) 88%, var(--sad-correct)) !important;
+}
+
+/* Sparx positions its per-answer result image at the edge of the box.  The
+   broad feedback rules above used to clip it there, so keep just these small
+   validation marks inside the upper-right of an answer or inline-slot card. */
+:root.sad-enabled :is([class*="AnswerPart" i], [class*="AnswerArea" i], [class*="InlineSlot" i]):is([class*="Correct" i], [class*="Incorrect" i], [data-state="correct" i], [data-state="incorrect" i], [data-status="correct" i], [data-status="incorrect" i]):has(svg[class*="ResultImage" i]) {
+  overflow: visible !important;
+  position: relative !important;
+}
+
+:root.sad-enabled :is([class*="AnswerPart" i], [class*="AnswerArea" i], [class*="InlineSlot" i]):is([class*="Correct" i], [class*="Incorrect" i], [data-state="correct" i], [data-state="incorrect" i], [data-status="correct" i], [data-status="incorrect" i]) svg[class*="ResultImage" i] {
+  bottom: auto !important;
+  inset: 9px 9px auto auto !important;
+  left: auto !important;
+  margin: 0 !important;
+  position: absolute !important;
+  transform: none !important;
+  z-index: 2 !important;
+}
+
+/* Sparx's support-video overlay is white in its default theme. Keep context without glare. */
+:root.sad-enabled [class*="DialogOverlay_"],
+:root.sad-enabled [class*="_DialogOverlay_"],
+:root.sad-enabled [data-radix-dialog-overlay],
+:root.sad-enabled .sad-dialog-backdrop {
+  background: rgba(8, 11, 15, .68) !important;
+  background-image: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  opacity: 1 !important;
+}
+
+/* ColourOverlay is the separate backdrop used by Sparx's support-video card. */
+:root.sad-enabled .sad-dialog-backdrop::before,
+:root.sad-enabled .sad-dialog-backdrop::after {
+  background: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+:root.sad-enabled [role="dialog"] {
+  background: var(--sad-surface) !important;
+  box-shadow: 0 18px 42px rgba(0,0,0,.42) !important;
+}
+
+:root.sad-enabled [role="dialog"] img,
+:root.sad-enabled [role="dialog"] video {
+  filter: brightness(.78) saturate(.88) !important;
+}
+
+:root.sad-enabled [role="dialog"] [class*="Play" i],
+:root.sad-enabled [role="dialog"] [class*="play" i] {
+  background-color: var(--sad-accent) !important;
+  box-shadow: none !important;
+}
+
+/* A compact, high-contrast play control for support-video previews. */
+:root.sad-enabled [role="dialog"] button[aria-label*="play" i],
+:root.sad-enabled [role="dialog"] [class*="PlayButton" i],
+:root.sad-enabled [role="dialog"] [class*="PlayIcon" i],
+:root.sad-enabled [class*="VideoSupport" i] [class*="Play" i],
+:root.sad-enabled [class*="SupportVideo" i] [class*="Play" i] {
+  align-items: center !important;
+  background: var(--sad-accent) !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+  box-shadow: 0 5px 14px rgba(0,0,0,.24) !important;
+  display: inline-flex !important;
+  height: 38px !important;
+  justify-content: center !important;
+  min-height: 38px !important;
+  min-width: 38px !important;
+  overflow: visible !important;
+  padding: 0 !important;
+  position: relative !important;
+  width: 38px !important;
+}
+
+:root.sad-enabled [role="dialog"] button[aria-label*="play" i] svg,
+:root.sad-enabled [role="dialog"] [class*="PlayButton" i] svg,
+:root.sad-enabled [role="dialog"] [class*="PlayIcon" i] svg,
+:root.sad-enabled [class*="VideoSupport" i] [class*="Play" i] svg,
+:root.sad-enabled [class*="SupportVideo" i] [class*="Play" i] svg {
+  display: none !important;
+}
+
+:root.sad-enabled [role="dialog"] button[aria-label*="play" i]::before,
+:root.sad-enabled [role="dialog"] [class*="PlayButton" i]::before,
+:root.sad-enabled [role="dialog"] [class*="PlayIcon" i]::before,
+:root.sad-enabled [class*="VideoSupport" i] [class*="Play" i]::before,
+:root.sad-enabled [class*="SupportVideo" i] [class*="Play" i]::before {
+  border-bottom: 7px solid transparent !important;
+  border-left: 11px solid #202124 !important;
+  border-top: 7px solid transparent !important;
+  content: "" !important;
+  display: block !important;
+  height: 0 !important;
+  margin-left: 2px !important;
+  width: 0 !important;
+}
+
+/* Support-video thumbnails can contain a baked-in white play circle.  Cover it
+   with the same compact control used elsewhere in the theme. */
+:root.sad-enabled [role="dialog"] .sad-video-preview {
+  position: relative !important;
+}
+
+:root.sad-enabled [role="dialog"] .sad-video-preview::before {
+  background: var(--sad-accent) !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,.28) !important;
+  content: "" !important;
+  height: 56px !important;
+  left: 50% !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 56px !important;
+  z-index: 2 !important;
+}
+
+:root.sad-enabled [role="dialog"] .sad-video-preview::after {
+  border-bottom: 8px solid transparent !important;
+  border-left: 13px solid #202124 !important;
+  border-top: 8px solid transparent !important;
+  content: "" !important;
+  height: 0 !important;
+  left: calc(50% + 2px) !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 0 !important;
+  z-index: 3 !important;
+}
+
+/* Bookwork Check is a compact working tool, so keep its menu quietly distinct
+   from the page while matching the rest of the theme. */
+:root.sad-enabled .sad-bookwork-check {
+  background: var(--sad-surface) !important;
+  background-image: none !important;
+  border: 1px solid rgba(255,255,255,.14) !important;
+  border-radius: calc(var(--sad-radius) + 2px) !important;
+  box-shadow: 0 16px 34px rgba(0,0,0,.30) !important;
+  color: var(--sad-text) !important;
+  overflow: hidden !important;
+}
+
+:root.sad-enabled .sad-bookwork-check h1,
+:root.sad-enabled .sad-bookwork-check h2,
+:root.sad-enabled .sad-bookwork-check h3,
+:root.sad-enabled .sad-bookwork-check p,
+:root.sad-enabled .sad-bookwork-check [class*="Title" i],
+:root.sad-enabled .sad-bookwork-check [class*="Description" i] {
+  background: transparent !important;
+  box-shadow: none !important;
+  color: var(--sad-text) !important;
+}
+
+:root.sad-enabled .sad-bookwork-check input,
+:root.sad-enabled .sad-bookwork-check textarea,
+:root.sad-enabled .sad-bookwork-check select {
+  background: color-mix(in srgb, var(--sad-bg) 88%, #000) !important;
+  border: 1px solid rgba(255,255,255,.16) !important;
+  border-radius: calc(var(--sad-radius) - 3px) !important;
+  box-shadow: none !important;
+  color: var(--sad-text) !important;
+}
+
+:root.sad-enabled .sad-bookwork-check [role="menuitem"],
+:root.sad-enabled .sad-bookwork-check [role="option"] {
+  background: transparent !important;
+  border-radius: calc(var(--sad-radius) - 5px) !important;
+  color: var(--sad-text) !important;
+}
+
+:root.sad-enabled .sad-bookwork-check [role="menuitem"]:hover,
+:root.sad-enabled .sad-bookwork-check [role="option"]:hover {
+  background: color-mix(in srgb, var(--sad-surface) 84%, var(--sad-accent)) !important;
+  color: var(--sad-text) !important;
+}
+
+:root.sad-enabled .sad-bookwork-check [class*="ButtonOutlined" i] {
+  background: transparent !important;
+  border: 1px solid color-mix(in srgb, var(--sad-accent) 70%, transparent) !important;
+  box-shadow: none !important;
+  color: var(--sad-accent) !important;
+}
+
+:root.sad-enabled .sad-bookwork-check [class*="ButtonOutlined" i] * {
+  color: inherit !important;
+}
+
+/* ButtonBase often wraps its label in an element called Content.  That name
+   also matches Sparx's page-content selector, so explicitly flatten every
+   nested label layer inside Bookwork Check. */
+:root.sad-enabled .sad-bookwork-check button *,
+:root.sad-enabled .sad-bookwork-check [role="button"] * {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  color: #202124 !important;
+}
+
+:root.sad-enabled .sad-bookwork-check button::before,
+:root.sad-enabled .sad-bookwork-check button::after,
+:root.sad-enabled .sad-bookwork-check [role="button"]::before,
+:root.sad-enabled .sad-bookwork-check [role="button"]::after {
+  background: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+:root.sad-enabled .sad-bookwork-check [class*="ButtonOutlined" i],
+:root.sad-enabled .sad-bookwork-check [class*="ButtonOutlined" i] * {
+  color: var(--sad-accent) !important;
+}
+
+/* Question tabs do not need a second, mismatched completion badge.  Keep the
+   task label readable and let the current tab be the only visual emphasis. */
+:root.sad-enabled [class^="_TaskItemLink_"],
+:root.sad-enabled [class*=" _TaskItemLink_"] {
+  align-items: center !important;
+  background: var(--sad-surface) !important;
+  background-image: none !important;
+  color: var(--sad-text) !important;
+  gap: 0 !important;
+  justify-content: center !important;
+}
+
+:root.sad-enabled [class^="_TaskItemLink_"] svg,
+:root.sad-enabled [class*=" _TaskItemLink_"] svg,
+:root.sad-enabled [class^="_TaskItemLink_"] [class*="Tick" i],
+:root.sad-enabled [class*=" _TaskItemLink_"] [class*="Tick" i],
+:root.sad-enabled [class^="_TaskItemLink_"] [class*="Check" i],
+:root.sad-enabled [class*=" _TaskItemLink_"] [class*="Check" i],
+:root.sad-enabled [class^="_TaskItemLink_"] [class*="StatusIcon" i],
+:root.sad-enabled [class*=" _TaskItemLink_"] [class*="StatusIcon" i],
+:root.sad-enabled [class^="_TaskItemLink_"] [class*="CompletionIcon" i],
+:root.sad-enabled [class*=" _TaskItemLink_"] [class*="CompletionIcon" i] {
+  display: none !important;
+}
+
+/* The Rewards action is an anchor whose module wrapper varies by build.
+   Target its stable destination directly and flatten every label/pseudo layer. */
+:root.sad-enabled a[href*="/student/leaderboard"] {
+  align-items: center !important;
+  background: var(--sad-accent) !important;
+  background-color: var(--sad-accent) !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-radius: calc(var(--sad-radius) - 3px) !important;
+  box-shadow: none !important;
+  color: #202124 !important;
+  display: inline-flex !important;
+  justify-content: center !important;
+  text-decoration: none !important;
+}
+
+:root.sad-enabled a[href*="/student/leaderboard"] *,
+:root.sad-enabled a[href*="/student/leaderboard"]::before,
+:root.sad-enabled a[href*="/student/leaderboard"]::after,
+:root.sad-enabled a[href*="/student/leaderboard"] *::before,
+:root.sad-enabled a[href*="/student/leaderboard"] *::after {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  color: #202124 !important;
+}
+
+:root.sad-enabled a[href*="/student/leaderboard"]:hover {
+  background: color-mix(in srgb, var(--sad-accent) 86%, white) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Leaderboard: retain the rankings, but replace the pale rows and low-contrast
+   labels with the same calm surfaces used across the rest of the extension. */
+:root.sad-enabled.sad-leaderboard [class*="Leaderboard" i] {
+  color: var(--sad-text) !important;
+}
+
+:root.sad-enabled.sad-leaderboard [class*="Leaderboard" i] [class*="Title" i] {
+  background: transparent !important;
+  color: var(--sad-text) !important;
+  text-shadow: none !important;
+}
+
+/* The name chooser is kept distinct from row-level player names below, but it
+   does not need a card or a pill around the student's display name. */
+:root.sad-enabled.sad-leaderboard [class*="Leaderboard" i] [class*="NameChooser" i] {
+  align-items: center !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  color: var(--sad-text) !important;
+}
+
+:root.sad-enabled.sad-leaderboard [class*="Leaderboard" i] [class*="NameChooser" i] > :not(button):not([role="button"]) {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  color: var(--sad-text) !important;
+}
+
+:root.sad-enabled.sad-leaderboard [class*="Leaderboard" i] [class*="NameChooserName" i] {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+/* The settings action remains the clear primary action. */
+:root.sad-enabled.sad-leaderboard [class*="NameChooser" i] button,
+:root.sad-enabled.sad-leaderboard [class*="NameChooser" i] [role="button"] {
+  background: var(--sad-accent) !important;
+  background-image: none !important;
+  border: 1px solid color-mix(in srgb, var(--sad-accent) 72%, white) !important;
+  border-radius: calc(var(--sad-radius) - 3px) !important;
+  box-shadow: none !important;
+  color: #202124 !important;
+}
+
+:root.sad-enabled.sad-leaderboard [class*="NameChooser" i] button *,
+:root.sad-enabled.sad-leaderboard [class*="NameChooser" i] [role="button"] * {
+  background: transparent !important;
+  color: inherit !important;
+}
+
+:root.sad-enabled.sad-leaderboard [class*="NameChooser" i] button:hover,
+:root.sad-enabled.sad-leaderboard [class*="NameChooser" i] [role="button"]:hover {
+  background: color-mix(in srgb, var(--sad-accent) 86%, white) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Board scope filters are intentionally quieter until selected. */
+:root.sad-enabled.sad-leaderboard [class*="SelectorContainer" i] button,
+:root.sad-enabled.sad-leaderboard [class*="SelectorContainer" i] [role="button"],
+:root.sad-enabled.sad-leaderboard [class*="SelectorContainer" i] select,
+:root.sad-enabled.sad-leaderboard [class*="SelectorContainer" i] [role="combobox"] {
+  background: var(--sad-surface) !important;
+  background-image: none !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+  border-radius: calc(var(--sad-radius) - 3px) !important;
+  box-shadow: none !important;
+  color: var(--sad-text) !important;
+}
+
+:root.sad-enabled.sad-leaderboard [class*="SelectorContainer" i] button *,
+:root.sad-enabled.sad-leaderboard [class*="SelectorContainer" i] [role="button"] *,
+:root.sad-enabled.sad-leaderboard [class*="SelectorContainer" i] [role="combobox"] * {
+  background: transparent !important;
+  color: inherit !important;
+}
+
+:root.sad-enabled.sad-leaderboard [class*="SelectorContainer" i] button:hover,
+:root.sad-enabled.sad-leaderboard [class*="SelectorContainer" i] [role="button"]:hover,
+:root.sad-enabled.sad-leaderboard [class*="SelectorContainer" i] select:hover,
+:root.sad-enabled.sad-leaderboard [class*="SelectorContainer" i] [role="combobox"]:hover {
+  border-color: color-mix(in srgb, var(--sad-accent) 58%, transparent) !important;
+  transform: translateY(-1px) !important;
+}
+
+:root.sad-enabled.sad-leaderboard [class*="SelectorContainer" i] button[aria-pressed="true"],
+:root.sad-enabled.sad-leaderboard [class*="SelectorContainer" i] [role="button"][aria-pressed="true"],
+:root.sad-enabled.sad-leaderboard [class*="SelectorContainer" i] [aria-selected="true"],
+:root.sad-enabled.sad-leaderboard [class*="SelectorContainer" i] [data-state="active"] {
+  background: color-mix(in srgb, var(--sad-surface) 82%, var(--sad-accent)) !important;
+  border-color: var(--sad-accent) !important;
+  color: var(--sad-accent) !important;
+}
+
+/* Use one quiet rectangular weekly banner: the original tails and crown add
+   visual noise without carrying any ranking information. */
+:root.sad-enabled.sad-leaderboard [class*="RibbonContainer" i] {
+  background: transparent !important;
+  color: #202124 !important;
+  filter: none !important;
+}
+
+:root.sad-enabled.sad-leaderboard [class*="RibbonContainer" i]::before,
+:root.sad-enabled.sad-leaderboard [class*="RibbonContainer" i]::after {
+  content: none !important;
+  display: none !important;
+}
+
+:root.sad-enabled.sad-leaderboard [class*="RibbonContainer" i] > svg {
+  display: none !important;
+}
+
+:root.sad-enabled.sad-leaderboard [class*="RibbonContainer" i] > [class*="RibbonBar" i] {
+  background: var(--sad-accent) !important;
+  background-image: none !important;
+  border: 1px solid color-mix(in srgb, var(--sad-accent) 72%, white) !important;
+  border-radius: calc(var(--sad-radius) - 4px) !important;
+  box-shadow: none !important;
+  color: #202124 !important;
+  margin-inline: auto !important;
+}
+
+:root.sad-enabled.sad-leaderboard [class*="RibbonContainer" i] > [class*="RibbonBar" i] * {
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: inherit !important;
+}
+
+:root.sad-enabled.sad-leaderboard [class*="RibbonContainer" i] > [class*="RibbonBar" i] > svg,
+:root.sad-enabled.sad-leaderboard [class*="RibbonContainer" i] > [class*="RibbonBar" i]::before,
+:root.sad-enabled.sad-leaderboard [class*="RibbonContainer" i] > [class*="RibbonBar" i]::after {
+  content: none !important;
+  display: none !important;
+}
+
+:root.sad-enabled.sad-leaderboard [class*="RibbonContainer" i] * {
+  color: inherit !important;
+}
+
+/* Each actual rank entry is a direct row of the table.  This avoids altering
+   the table's ranking logic while removing the harsh pale-blue fill. */
+:root.sad-enabled.sad-leaderboard [class*="Table" i] > [class*="Row" i] {
+  background: var(--sad-surface) !important;
+  background-image: none !important;
+  border: 1px solid rgba(255,255,255,.10) !important;
+  border-radius: calc(var(--sad-radius) - 3px) !important;
+  box-shadow: none !important;
+  color: var(--sad-text) !important;
+  margin: 5px 0 !important;
+  overflow: hidden !important;
+}
+
+:root.sad-enabled.sad-leaderboard [class*="Table" i] {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+:root.sad-enabled.sad-leaderboard [class*="Table" i] > [class*="Row" i] [class*="RowInformation" i] {
+  background: transparent !important;
+  box-shadow: none !important;
+  color: var(--sad-text) !important;
+}
+
+:root.sad-enabled.sad-leaderboard [class*="Table" i] > [class*="Row" i] [class*="Name" i] {
+  color: var(--sad-text) !important;
+}
+
+:root.sad-enabled.sad-leaderboard [class*="Table" i] > [class*="Row" i] [class*="Experience" i] {
+  color: var(--sad-accent) !important;
+  font-variant-numeric: tabular-nums !important;
+}
+
+:root.sad-enabled.sad-leaderboard [class*="Table" i] > [class*="Row" i] [class*="RowInformation" i][class*="NoXP" i] [class*="Experience" i] {
+  color: color-mix(in srgb, var(--sad-text) 56%, transparent) !important;
+}
+
+:root.sad-enabled.sad-leaderboard [class*="Table" i] > [class*="Row" i] [class*="Position" i] {
+  align-items: center !important;
+  background: color-mix(in srgb, var(--sad-surface) 88%, var(--sad-text)) !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+  border-radius: 999px !important;
+  color: color-mix(in srgb, var(--sad-text) 72%, transparent) !important;
+  display: inline-flex !important;
+  justify-content: center !important;
+}
+
+:root.sad-enabled.sad-leaderboard [class*="Table" i] > [class*="Row" i] [class*="Position" i] svg {
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+
+/* The first ranked student keeps a quiet winner treatment without making the
+   rest of the board look disabled. */
+:root.sad-enabled.sad-leaderboard [class*="Table" i] > [class*="Row" i]:first-child {
+  background: linear-gradient(90deg, color-mix(in srgb, var(--sad-surface) 70%, var(--sad-accent)), var(--sad-surface)) !important;
+  border-color: color-mix(in srgb, var(--sad-accent) 46%, transparent) !important;
+}
+
+:root.sad-enabled.sad-leaderboard [class*="Table" i] > [class*="Row" i]:first-child [class*="Position" i] {
+  background: var(--sad-accent) !important;
+  border-color: var(--sad-accent) !important;
+  color: #202124 !important;
+}
+
+:root.sad-enabled.sad-leaderboard [class*="Table" i] > [class*="Row" i]:hover {
+  background: color-mix(in srgb, var(--sad-surface) 88%, var(--sad-accent)) !important;
+  border-color: color-mix(in srgb, var(--sad-accent) 40%, transparent) !important;
+}
+
+/* Inline matching/slot questions otherwise leave a pale canvas around the
+   answer choices.  Theme only the stable container layers, leaving each
+   interactive slot and its selection state under Sparx's control. */
+:root.sad-enabled [class^="_InlineSlotOptions_"],
+:root.sad-enabled [class*=" _InlineSlotOptions_"],
+:root.sad-enabled [class^="_SlotOptionsContainer_"],
+:root.sad-enabled [class*=" _SlotOptionsContainer_"] {
+  background: var(--sad-surface) !important;
+  background-image: none !important;
+  border-radius: calc(var(--sad-radius) - 2px) !important;
+  box-shadow: none !important;
+}
+
+:root.sad-enabled [class^="_InlineSlotOptionsVertical_"],
+:root.sad-enabled [class*=" _InlineSlotOptionsVertical_"] {
+  background: var(--sad-surface) !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+/* Make selected answer choices unmistakable.  Sparx's different question
+   types expose selection through different ARIA, input, and CSS-module states;
+   the local marker covers renderers which only make a very subtle visual swap. */
+:root.sad-enabled :is(
+  [class^="_InlineSlotOptions_"],
+  [class*=" _InlineSlotOptions_"],
+  [class^="_SlotOptionsContainer_"],
+  [class*=" _SlotOptionsContainer_"]
+) :is(
+  .sad-choice-selected,
+  [aria-pressed="true"],
+  [aria-selected="true"],
+  [aria-checked="true"],
+  [data-selected="true"],
+  [data-state="selected"],
+  [data-state="active"],
+  [class*="Selected" i],
+  [class*="_selected_" i],
+  :has(input[type="checkbox"]:checked),
+  :has(input[type="radio"]:checked)
+) {
+  background: color-mix(in srgb, var(--sad-action) 64%, var(--sad-surface)) !important;
+  border: 2px solid var(--sad-accent) !important;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--sad-text) 25%, transparent), 0 0 0 2px color-mix(in srgb, var(--sad-accent) 27%, transparent) !important;
+  color: var(--sad-text) !important;
+}
+
+:root.sad-enabled :is(
+  [class^="_InlineSlotOptions_"],
+  [class*=" _InlineSlotOptions_"],
+  [class^="_SlotOptionsContainer_"],
+  [class*=" _SlotOptionsContainer_"]
+) :is(
+  .sad-choice-selected,
+  [aria-pressed="true"],
+  [aria-selected="true"],
+  [aria-checked="true"],
+  [data-selected="true"],
+  [data-state="selected"],
+  [data-state="active"],
+  [class*="Selected" i],
+  [class*="_selected_" i],
+  :has(input[type="checkbox"]:checked),
+  :has(input[type="radio"]:checked)
+) > :is(button, [role="button"], [role="option"]) {
+  background: transparent !important;
+  color: inherit !important;
+}
+
+:root.sad-enabled :is(
+  [class^="_InlineSlotOptions_"],
+  [class*=" _InlineSlotOptions_"],
+  [class^="_SlotOptionsContainer_"],
+  [class*=" _SlotOptionsContainer_"]
+) :is(
+  .sad-choice-selected,
+  [aria-pressed="true"],
+  [aria-selected="true"],
+  [aria-checked="true"],
+  [data-selected="true"],
+  [data-state="selected"],
+  [data-state="active"],
+  [class*="Selected" i],
+  [class*="_selected_" i],
+  :has(input[type="checkbox"]:checked),
+  :has(input[type="radio"]:checked)
+) * {
+  color: var(--sad-text) !important;
+}
+
+/* The click marker can sit directly on a native choice button.  Keep this
+   final, explicit form so a nested ButtonBase never paints yellow over it. */
+:root.sad-enabled .sad-choice-selected {
+  background: color-mix(in srgb, var(--sad-action) 64%, var(--sad-surface)) !important;
+  border: 2px solid var(--sad-accent) !important;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--sad-text) 25%, transparent), 0 0 0 2px color-mix(in srgb, var(--sad-accent) 27%, transparent) !important;
+  color: var(--sad-text) !important;
+}
+
+:root.sad-enabled .sad-choice-selected * {
+  color: var(--sad-text) !important;
+}
+
+/* Calculator badges are injected only for status that Sparx has already shown
+   in the current question.  Together with the tab label they stay centred,
+   while the label shifts slightly left to make room for the compact mark. */
+:root.sad-enabled.sad-show-calculator-badges [class^="_TaskItemLink_"],
+:root.sad-enabled.sad-show-calculator-badges [class*=" _TaskItemLink_"] {
+  gap: 5px !important;
+}
+
+:root.sad-enabled .sad-calculator-badge {
+  align-self: center !important;
+  background: transparent !important;
+  border: 0 !important;
+  display: inline-block !important;
+  flex: 0 0 12px !important;
+  height: 12px !important;
+  pointer-events: none !important;
+  position: relative !important;
+  width: 12px !important;
+}
+
+:root.sad-enabled .sad-calculator-badge::before {
+  background: var(--sad-accent) !important;
+  content: "" !important;
+  display: block !important;
+  height: 12px !important;
+  inset: 0 !important;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm1 3v5h10V5H7Zm1 8v2h2v-2H8Zm0 4v2h2v-2H8Zm4-4v2h2v-2h-2Zm0 4v2h2v-2h-2Zm4-4v2h2v-2h-2Zm0 4v2h2v-2h-2Z'/%3E%3C/svg%3E") center / contain no-repeat !important;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm1 3v5h10V5H7Zm1 8v2h2v-2H8Zm0 4v2h2v-2H8Zm4-4v2h2v-2h-2Zm0 4v2h2v-2h-2Zm4-4v2h2v-2h-2Zm0 4v2h2v-2h-2Z'/%3E%3C/svg%3E") center / contain no-repeat !important;
+  position: absolute !important;
+  width: 12px !important;
+}
+
+:root.sad-enabled .sad-calculator-badge[data-mode="non-calculator"]::before {
+  background: color-mix(in srgb, var(--sad-text) 78%, transparent) !important;
+}
+
+:root.sad-enabled .sad-calculator-badge[data-mode="non-calculator"]::after {
+  background: var(--sad-incorrect) !important;
+  border-radius: 2px !important;
+  content: "" !important;
+  height: 2px !important;
+  left: -1px !important;
+  position: absolute !important;
+  top: 5px !important;
+  transform: rotate(-45deg) !important;
+  width: 14px !important;
+}
+
+/* The Answer Journal is an optional local study aid.  It is a fixed overlay,
+   so it never changes the question width or competes with Focus mode on the
+   opposite side of the screen. */
+#sad-answer-journal-button {
+  align-items: center !important;
+  background: var(--sad-accent) !important;
+  border: 0 !important;
+  border-radius: calc(var(--sad-radius) - 3px) !important;
+  bottom: 18px !important;
+  box-shadow: 0 8px 22px rgba(0,0,0,.24) !important;
+  color: #202124 !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  font-size: 0 !important;
+  height: 32px !important;
+  justify-content: center !important;
+  left: 18px !important;
+  line-height: 0 !important;
+  min-height: 32px !important;
+  padding: 0 !important;
+  position: fixed !important;
+  width: 32px !important;
+  z-index: 2147483646 !important;
+}
+
+#sad-answer-journal-button:hover { filter: brightness(1.06) !important; }
+
+#sad-answer-journal-button::before {
+  background: #202124 !important;
+  content: "" !important;
+  height: 15px !important;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 4.75A2.75 2.75 0 0 1 7.75 2H19v18H7.75A2.75 2.75 0 0 0 5 22m0-17.25V22m3-14h7m-7 4h7m-7 4h5'/%3E%3C/svg%3E") center / contain no-repeat !important;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 4.75A2.75 2.75 0 0 1 7.75 2H19v18H7.75A2.75 2.75 0 0 0 5 22m0-17.25V22m3-14h7m-7 4h7m-7 4h5'/%3E%3C/svg%3E") center / contain no-repeat !important;
+  width: 15px !important;
+}
+
+#sad-answer-journal-panel {
+  background: var(--sad-surface) !important;
+  border: 1px solid color-mix(in srgb, var(--sad-accent) 45%, rgba(255,255,255,.16)) !important;
+  border-radius: var(--sad-radius) !important;
+  bottom: 60px !important;
+  box-shadow: 0 16px 36px rgba(0,0,0,.34) !important;
+  box-sizing: border-box !important;
+  color: var(--sad-text) !important;
+  left: 18px !important;
+  max-height: min(62vh, 520px) !important;
+  overflow-y: auto !important;
+  padding: 14px !important;
+  position: fixed !important;
+  width: min(360px, calc(100vw - 36px)) !important;
+  z-index: 2147483645 !important;
+}
+
+#sad-answer-journal-panel[hidden] { display: none !important; }
+
+#sad-answer-journal-panel .sad-answer-journal-header {
+  align-items: center !important;
+  background: transparent !important;
+  display: flex !important;
+  justify-content: space-between !important;
+}
+
+#sad-answer-journal-panel h2 {
+  background: transparent !important;
+  color: var(--sad-text) !important;
+  font-size: 16px !important;
+  letter-spacing: -.02em !important;
+  line-height: 1.2 !important;
+  margin: 0 !important;
+}
+
+#sad-answer-journal-panel .sad-answer-journal-close {
+  align-items: center !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 7px !important;
+  box-shadow: none !important;
+  color: var(--sad-text) !important;
+  display: inline-flex !important;
+  font-size: 23px !important;
+  font-weight: 400 !important;
+  height: 28px !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+  min-height: 28px !important;
+  padding: 0 !important;
+  text-align: center !important;
+  width: 28px !important;
+}
+
+#sad-answer-journal-panel .sad-answer-journal-close:hover {
+  background: color-mix(in srgb, var(--sad-surface) 78%, var(--sad-accent)) !important;
+  filter: none !important;
+  transform: none !important;
+}
+
+#sad-answer-journal-panel .sad-answer-journal-note {
+  background: transparent !important;
+  color: color-mix(in srgb, var(--sad-text) 68%, transparent) !important;
+  font-size: 12px !important;
+  line-height: 1.38 !important;
+  margin: 6px 0 10px !important;
+}
+
+#sad-answer-journal-panel .sad-answer-journal-line {
+  background: var(--sad-accent) !important;
+  border: 0 !important;
+  border-radius: 2px !important;
+  height: 2px !important;
+  margin: 0 0 10px !important;
+  opacity: .9 !important;
+}
+
+#sad-answer-journal-list {
+  background: transparent !important;
+  display: grid !important;
+  gap: 8px !important;
+  max-height: min(42vh, 320px) !important;
+  overflow: auto !important;
+  padding-right: 2px !important;
+}
+
+#sad-answer-journal-list .sad-answer-journal-entry {
+  background: color-mix(in srgb, var(--sad-surface) 86%, var(--sad-bg)) !important;
+  border: 1px solid rgba(255,255,255,.09) !important;
+  border-radius: calc(var(--sad-radius) - 4px) !important;
+  box-shadow: none !important;
+  color: var(--sad-text) !important;
+  margin: 0 !important;
+  padding: 9px 10px !important;
+}
+
+#sad-answer-journal-list .sad-answer-journal-entry-top {
+  align-items: center !important;
+  background: transparent !important;
+  display: flex !important;
+  gap: 8px !important;
+  justify-content: space-between !important;
+}
+
+#sad-answer-journal-list strong {
+  background: transparent !important;
+  color: var(--sad-text) !important;
+  font-size: 13px !important;
+}
+
+#sad-answer-journal-list time {
+  background: transparent !important;
+  color: color-mix(in srgb, var(--sad-text) 62%, transparent) !important;
+  display: block !important;
+  font-size: 11px !important;
+  margin-top: 3px !important;
+}
+
+#sad-answer-journal-list .sad-answer-journal-answer {
+  background: transparent !important;
+  color: var(--sad-text) !important;
+  font-size: 12px !important;
+  line-height: 1.35 !important;
+  margin: 6px 0 0 !important;
+  overflow-wrap: anywhere !important;
+}
+
+#sad-answer-journal-list .sad-answer-journal-result {
+  background: transparent !important;
+  border: 1px solid currentColor !important;
+  border-radius: 999px !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  padding: 2px 6px !important;
+  white-space: nowrap !important;
+}
+
+#sad-answer-journal-list .sad-answer-journal-result[data-result="correct"] { color: var(--sad-correct) !important; }
+#sad-answer-journal-list .sad-answer-journal-result[data-result="incorrect"] { color: var(--sad-incorrect) !important; }
+
+#sad-answer-journal-list .sad-answer-journal-empty {
+  background: transparent !important;
+  color: color-mix(in srgb, var(--sad-text) 68%, transparent) !important;
+  font-size: 12px !important;
+  line-height: 1.45 !important;
+  margin: 4px 0 !important;
+}
+
+#sad-answer-journal-panel .sad-answer-journal-clear {
+  background: transparent !important;
+  border: 1px solid color-mix(in srgb, var(--sad-accent) 52%, transparent) !important;
+  border-radius: calc(var(--sad-radius) - 5px) !important;
+  box-shadow: none !important;
+  color: var(--sad-accent) !important;
+  font-size: 12px !important;
+  margin-top: 10px !important;
+  min-height: 30px !important;
+  padding: 5px 9px !important;
+}
+
+#sad-answer-journal-panel .sad-answer-journal-clear:hover {
+  background: color-mix(in srgb, var(--sad-surface) 78%, var(--sad-accent)) !important;
+  filter: none !important;
+  transform: none !important;
+}
+
+/* Local study guide — deliberately a compact, readable fact-sheet panel. It
+   shares the journal's corner and never changes the question layout. */
+#sad-study-guide-button {
+  align-items: center !important;
+  background: var(--sad-accent) !important;
+  border: 0 !important;
+  border-radius: calc(var(--sad-radius) - 3px) !important;
+  bottom: 18px !important;
+  box-shadow: 0 8px 22px rgba(0,0,0,.24) !important;
+  color: #202124 !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  font-size: 0 !important;
+  height: 32px !important;
+  justify-content: center !important;
+  left: 18px !important;
+  line-height: 0 !important;
+  min-height: 32px !important;
+  padding: 0 !important;
+  position: fixed !important;
+  width: 32px !important;
+  z-index: 2147483646 !important;
+}
+
+:root.sad-answer-journal-available #sad-study-guide-button { left: 58px !important; }
+
+#sad-study-guide-button:hover { filter: brightness(1.06) !important; }
+
+#sad-study-guide-button::before {
+  background: #202124 !important;
+  content: "" !important;
+  display: block !important;
+  height: 16px !important;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 18h6m-5 3h4m3.1-10.8A5.2 5.2 0 1 0 8.5 14c.9.8 1.4 1.6 1.5 2.5h4c.1-.9.6-1.7 1.5-2.5a5.1 5.1 0 0 0 1.6-3.8Z'/%3E%3C/svg%3E") center / contain no-repeat !important;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 18h6m-5 3h4m3.1-10.8A5.2 5.2 0 1 0 8.5 14c.9.8 1.4 1.6 1.5 2.5h4c.1-.9.6-1.7 1.5-2.5a5.1 5.1 0 0 0 1.6-3.8Z'/%3E%3C/svg%3E") center / contain no-repeat !important;
+  width: 16px !important;
+}
+
+#sad-study-guide-panel {
+  background: var(--sad-surface) !important;
+  border: 1px solid color-mix(in srgb, var(--sad-accent) 45%, rgba(255,255,255,.16)) !important;
+  border-radius: var(--sad-radius) !important;
+  bottom: 60px !important;
+  box-shadow: 0 16px 36px rgba(0,0,0,.34) !important;
+  box-sizing: border-box !important;
+  color: var(--sad-text) !important;
+  left: 18px !important;
+  max-height: min(70vh, 620px) !important;
+  overflow-y: auto !important;
+  padding: 14px !important;
+  position: fixed !important;
+  scrollbar-color: color-mix(in srgb, var(--sad-text) 28%, var(--sad-surface)) var(--sad-surface) !important;
+  width: min(382px, calc(100vw - 36px)) !important;
+  z-index: 2147483645 !important;
+}
+
+#sad-study-guide-panel[hidden] { display: none !important; }
+#sad-study-guide-panel::-webkit-scrollbar { width: 9px !important; }
+#sad-study-guide-panel::-webkit-scrollbar-track { background: var(--sad-surface) !important; }
+#sad-study-guide-panel::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--sad-text) 27%, var(--sad-surface)) !important;
+  border: 2px solid var(--sad-surface) !important;
+  border-radius: 999px !important;
+}
+
+#sad-study-guide-panel .sad-study-guide-header {
+  align-items: flex-start !important;
+  background: transparent !important;
+  display: flex !important;
+  gap: 10px !important;
+  justify-content: space-between !important;
+}
+
+#sad-study-guide-panel h2,
+#sad-study-guide-panel h3,
+#sad-study-guide-panel h4,
+#sad-study-guide-panel p,
+#sad-study-guide-panel li,
+#sad-study-guide-panel summary,
+#sad-study-guide-panel label {
+  background: transparent !important;
+  color: var(--sad-text) !important;
+}
+
+#sad-study-guide-panel h2 {
+  font-size: 16px !important;
+  letter-spacing: -.02em !important;
+  line-height: 1.2 !important;
+  margin: 0 !important;
+}
+
+#sad-study-guide-panel .sad-study-guide-privacy {
+  color: color-mix(in srgb, var(--sad-text) 65%, transparent) !important;
+  font-size: 11px !important;
+  line-height: 1.35 !important;
+  margin: 3px 0 0 !important;
+}
+
+#sad-study-guide-panel .sad-study-guide-close {
+  align-items: center !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 7px !important;
+  box-shadow: none !important;
+  color: var(--sad-text) !important;
+  display: inline-flex !important;
+  flex: 0 0 28px !important;
+  font-size: 23px !important;
+  font-weight: 400 !important;
+  height: 28px !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+  min-height: 28px !important;
+  padding: 0 !important;
+  text-align: center !important;
+  width: 28px !important;
+}
+
+#sad-study-guide-panel .sad-study-guide-close:hover {
+  background: color-mix(in srgb, var(--sad-surface) 78%, var(--sad-accent)) !important;
+  filter: none !important;
+  transform: none !important;
+}
+
+#sad-study-guide-panel .sad-study-guide-line {
+  background: var(--sad-accent) !important;
+  border: 0 !important;
+  border-radius: 2px !important;
+  height: 2px !important;
+  margin: 10px 0 !important;
+  opacity: .9 !important;
+}
+
+#sad-study-guide-panel .sad-study-guide-match {
+  background: color-mix(in srgb, var(--sad-surface) 75%, var(--sad-accent)) !important;
+  border: 1px solid color-mix(in srgb, var(--sad-accent) 38%, transparent) !important;
+  border-radius: 999px !important;
+  color: var(--sad-text) !important;
+  display: inline-block !important;
+  font-size: 11px !important;
+  font-weight: 750 !important;
+  line-height: 1.35 !important;
+  margin: 0 0 9px !important;
+  max-width: 100% !important;
+  padding: 4px 8px !important;
+}
+
+#sad-study-guide-panel .sad-study-guide-topic-label {
+  color: color-mix(in srgb, var(--sad-text) 76%, transparent) !important;
+  display: grid !important;
+  font-size: 11px !important;
+  font-weight: 750 !important;
+  gap: 4px !important;
+  line-height: 1.2 !important;
+  margin: 0 0 10px !important;
+}
+
+#sad-study-guide-panel .sad-study-guide-topic-select {
+  appearance: auto !important;
+  background: color-mix(in srgb, var(--sad-surface) 86%, var(--sad-bg)) !important;
+  border: 1px solid rgba(255,255,255,.15) !important;
+  border-radius: calc(var(--sad-radius) - 5px) !important;
+  box-shadow: none !important;
+  color: var(--sad-text) !important;
+  font: inherit !important;
+  font-size: 13px !important;
+  line-height: 1.2 !important;
+  min-height: 34px !important;
+  padding: 6px 8px !important;
+  width: 100% !important;
+}
+
+#sad-study-guide-panel .sad-study-guide-topic-select:focus-visible,
+#sad-study-guide-panel .sad-study-guide-close:focus-visible,
+#sad-study-guide-button:focus-visible {
+  outline: 2px solid var(--sad-accent) !important;
+  outline-offset: 2px !important;
+}
+
+#sad-study-guide-panel .sad-study-guide-card {
+  background: color-mix(in srgb, var(--sad-surface) 86%, var(--sad-bg)) !important;
+  border: 1px solid rgba(255,255,255,.10) !important;
+  border-radius: calc(var(--sad-radius) - 3px) !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  padding: 12px !important;
+}
+
+#sad-study-guide-panel .sad-study-guide-card h3 {
+  font-size: 17px !important;
+  letter-spacing: -.02em !important;
+  line-height: 1.15 !important;
+  margin: 0 !important;
+}
+
+#sad-study-guide-panel .sad-study-guide-strapline {
+  color: var(--sad-accent) !important;
+  font-size: 12px !important;
+  font-weight: 750 !important;
+  line-height: 1.35 !important;
+  margin: 3px 0 11px !important;
+}
+
+#sad-study-guide-panel .sad-study-guide-card h4 {
+  font-size: 12px !important;
+  line-height: 1.25 !important;
+  margin: 12px 0 4px !important;
+}
+
+#sad-study-guide-panel .sad-study-guide-idea {
+  color: color-mix(in srgb, var(--sad-text) 85%, transparent) !important;
+  font-size: 13px !important;
+  line-height: 1.45 !important;
+  margin: 0 !important;
+}
+
+#sad-study-guide-panel .sad-study-guide-steps,
+#sad-study-guide-panel .sad-study-guide-facts {
+  display: grid !important;
+  gap: 6px !important;
+  margin: 0 !important;
+  padding-left: 19px !important;
+}
+
+#sad-study-guide-panel .sad-study-guide-steps li,
+#sad-study-guide-panel .sad-study-guide-facts li {
+  color: color-mix(in srgb, var(--sad-text) 86%, transparent) !important;
+  font-size: 12px !important;
+  line-height: 1.4 !important;
+  padding-left: 1px !important;
+}
+
+#sad-study-guide-panel .sad-study-guide-details {
+  background: transparent !important;
+  border-top: 1px solid rgba(255,255,255,.10) !important;
+  margin-top: 12px !important;
+  padding-top: 9px !important;
+}
+
+#sad-study-guide-panel .sad-study-guide-details summary {
+  color: var(--sad-accent) !important;
+  cursor: pointer !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  line-height: 1.35 !important;
+}
+
+#sad-study-guide-panel .sad-study-guide-details[open] summary { margin-bottom: 8px !important; }
+
+#sad-study-guide-panel .sad-study-guide-trap {
+  background: color-mix(in srgb, var(--sad-surface) 78%, var(--sad-incorrect)) !important;
+  border-left: 3px solid var(--sad-accent) !important;
+  border-radius: 0 calc(var(--sad-radius) - 6px) calc(var(--sad-radius) - 6px) 0 !important;
+  color: var(--sad-text) !important;
+  font-size: 12px !important;
+  line-height: 1.4 !important;
+  margin: 10px 0 0 !important;
+  padding: 7px 8px !important;
+}
+
+#sad-study-guide-panel .sad-study-guide-footer {
+  color: color-mix(in srgb, var(--sad-text) 62%, transparent) !important;
+  font-size: 11px !important;
+  line-height: 1.4 !important;
+  margin: 10px 2px 0 !important;
+}
+
+:root.sad-question-focus #sad-study-guide-panel,
+:root.sad-question-focus #sad-study-guide-button { display: none !important; }
+
+@media (max-width: 620px) {
+  #sad-study-guide-panel {
+    bottom: 58px !important;
+    left: 12px !important;
+    max-height: min(70vh, 620px) !important;
+    width: calc(100vw - 24px) !important;
+  }
+
+  #sad-study-guide-button { left: 12px !important; }
+  :root.sad-answer-journal-available #sad-study-guide-button { left: 52px !important; }
+}
+
+/* Local scientific calculator — kept as a compact, collapsible right-side
+   tool so it never edits, reads, or submits a Sparx answer. */
+#sad-scientific-calculator-toggle {
+  align-items: center !important;
+  background: var(--sad-accent) !important;
+  border: 0 !important;
+  border-radius: calc(var(--sad-radius) - 3px) !important;
+  bottom: 18px !important;
+  box-shadow: 0 8px 22px rgba(0,0,0,.24) !important;
+  color: #202124 !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  font-size: 0 !important;
+  height: 32px !important;
+  justify-content: center !important;
+  min-height: 32px !important;
+  padding: 0 !important;
+  position: fixed !important;
+  right: 58px !important;
+  width: 32px !important;
+  z-index: 2147483646 !important;
+}
+
+#sad-scientific-calculator-toggle::before {
+  background: #202124 !important;
+  content: "" !important;
+  display: block !important;
+  height: 15px !important;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='4' y='2.5' width='16' height='19' rx='2' fill='none' stroke='%23000' stroke-width='2'/%3E%3Cpath d='M7 6.5h10M8 11h2m4 0h2m-8 4h2m4 0h2m-8 3h2m4 0h2' stroke='%23000' stroke-linecap='round' stroke-width='2'/%3E%3C/svg%3E") center / contain no-repeat !important;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='4' y='2.5' width='16' height='19' rx='2' fill='none' stroke='%23000' stroke-width='2'/%3E%3Cpath d='M7 6.5h10M8 11h2m4 0h2m-8 4h2m4 0h2m-8 3h2m4 0h2' stroke='%23000' stroke-linecap='round' stroke-width='2'/%3E%3C/svg%3E") center / contain no-repeat !important;
+  width: 15px !important;
+}
+
+#sad-scientific-calculator-panel {
+  background: var(--sad-surface) !important;
+  border: 1px solid color-mix(in srgb, var(--sad-accent) 45%, rgba(255,255,255,.16)) !important;
+  border-radius: var(--sad-radius) !important;
+  bottom: 60px !important;
+  box-shadow: 0 16px 36px rgba(0,0,0,.34) !important;
+  box-sizing: border-box !important;
+  color: var(--sad-text) !important;
+  max-height: min(76vh, 690px) !important;
+  overflow-y: auto !important;
+  padding: 13px !important;
+  position: fixed !important;
+  right: 18px !important;
+  width: min(360px, calc(100vw - 36px)) !important;
+  z-index: 2147483645 !important;
+}
+
+#sad-scientific-calculator-panel[hidden] { display: none !important; }
+
+#sad-scientific-calculator-panel .sad-scientific-calculator-header {
+  align-items: center !important;
+  background: transparent !important;
+  display: flex !important;
+  justify-content: space-between !important;
+}
+
+#sad-scientific-calculator-panel h2 {
+  background: transparent !important;
+  color: var(--sad-text) !important;
+  font-size: 16px !important;
+  letter-spacing: -.02em !important;
+  line-height: 1.2 !important;
+  margin: 0 !important;
+}
+
+#sad-scientific-calculator-panel .sad-scientific-calculator-header p {
+  background: transparent !important;
+  color: color-mix(in srgb, var(--sad-text) 64%, transparent) !important;
+  font-size: 11px !important;
+  margin: 3px 0 0 !important;
+}
+
+#sad-scientific-calculator-panel .sad-scientific-calculator-close {
+  align-items: center !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 7px !important;
+  box-shadow: none !important;
+  color: var(--sad-text) !important;
+  display: inline-flex !important;
+  font-size: 23px !important;
+  font-weight: 400 !important;
+  height: 28px !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+  min-height: 28px !important;
+  padding: 0 !important;
+  text-align: center !important;
+  width: 28px !important;
+}
+
+#sad-scientific-calculator-panel .sad-scientific-calculator-close:hover {
+  background: color-mix(in srgb, var(--sad-surface) 78%, var(--sad-accent)) !important;
+  filter: none !important;
+  transform: none !important;
+}
+
+#sad-scientific-calculator-panel .sad-scientific-calculator-line {
+  background: var(--sad-accent) !important;
+  border: 0 !important;
+  border-radius: 2px !important;
+  height: 2px !important;
+  margin: 10px 0 !important;
+  opacity: .9 !important;
+}
+
+#sad-scientific-calculator-panel .sad-scientific-calculator-warning {
+  background: color-mix(in srgb, var(--sad-surface) 72%, var(--sad-accent)) !important;
+  border: 1px solid color-mix(in srgb, var(--sad-accent) 58%, transparent) !important;
+  border-radius: calc(var(--sad-radius) - 4px) !important;
+  color: var(--sad-text) !important;
+  font-size: 12px !important;
+  font-weight: 650 !important;
+  line-height: 1.4 !important;
+  margin: 0 0 10px !important;
+  padding: 8px 10px !important;
+}
+
+#sad-scientific-calculator-panel .sad-scientific-calculator-warning[hidden] { display: none !important; }
+
+#sad-scientific-calculator-panel .sad-scientific-calculator {
+  background: transparent !important;
+  display: grid !important;
+  gap: 9px !important;
+}
+
+#sad-scientific-calculator-panel .sad-scientific-calculator-display-area {
+  background: #202124 !important;
+  border: 1px solid rgba(255,255,255,.14) !important;
+  border-radius: calc(var(--sad-radius) - 4px) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.04) !important;
+  padding: 8px 10px !important;
+}
+
+#sad-scientific-calculator-panel .sad-scientific-calculator-status {
+  background: transparent !important;
+  color: color-mix(in srgb, var(--sad-text) 68%, transparent) !important;
+  display: block !important;
+  font-size: 11px !important;
+  min-height: 16px !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+#sad-scientific-calculator-panel .sad-scientific-calculator-status[data-error="true"] { color: var(--sad-incorrect) !important; }
+
+#sad-scientific-calculator-panel .sad-scientific-calculator-display {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  color: var(--sad-text) !important;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace !important;
+  font-size: 22px !important;
+  font-weight: 700 !important;
+  min-height: 34px !important;
+  outline: 0 !important;
+  padding: 0 !important;
+  text-align: right !important;
+  width: 100% !important;
+}
+
+#sad-scientific-calculator-panel .sad-scientific-calculator-grid {
+  background: transparent !important;
+  display: grid !important;
+  gap: 6px !important;
+  grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+}
+
+#sad-scientific-calculator-panel .sad-scientific-calculator-key {
+  align-items: center !important;
+  background: color-mix(in srgb, var(--sad-surface) 82%, var(--sad-bg)) !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+  border-radius: calc(var(--sad-radius) - 6px) !important;
+  box-shadow: none !important;
+  color: var(--sad-text) !important;
+  display: inline-flex !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  justify-content: center !important;
+  letter-spacing: 0 !important;
+  min-height: 33px !important;
+  padding: 4px 2px !important;
+}
+
+#sad-scientific-calculator-panel .sad-scientific-calculator-key:hover {
+  background: color-mix(in srgb, var(--sad-surface) 77%, var(--sad-accent)) !important;
+  border-color: color-mix(in srgb, var(--sad-accent) 45%, transparent) !important;
+  filter: none !important;
+  transform: none !important;
+}
+
+#sad-scientific-calculator-panel .sad-scientific-calculator-key[data-calculator-action="function"],
+#sad-scientific-calculator-panel .sad-scientific-calculator-key[data-calculator-action="angle"],
+#sad-scientific-calculator-panel .sad-scientific-calculator-key[data-calculator-action^="memory"] {
+  background: color-mix(in srgb, var(--sad-surface) 70%, var(--sad-action)) !important;
+}
+
+#sad-scientific-calculator-panel .sad-scientific-calculator-key[data-calculator-action="operator"],
+#sad-scientific-calculator-panel .sad-calculator-utility {
+  color: var(--sad-accent) !important;
+}
+
+#sad-scientific-calculator-panel .sad-scientific-calculator-key.sad-calculator-equals {
+  background: var(--sad-accent) !important;
+  border-color: var(--sad-accent) !important;
+  color: #202124 !important;
+}
+
+#sad-scientific-calculator-panel .sad-scientific-calculator-key.sad-calculator-clear {
+  background: color-mix(in srgb, var(--sad-surface) 68%, var(--sad-incorrect)) !important;
+  color: var(--sad-text) !important;
+}
+
+:root.sad-question-focus #sad-scientific-calculator-panel,
+:root.sad-question-focus #sad-scientific-calculator-toggle { display: none !important; }
+
+@media (max-width: 620px) {
+  #sad-scientific-calculator-panel {
+    bottom: 58px !important;
+    left: 12px !important;
+    max-height: min(76vh, 650px) !important;
+    right: 12px !important;
+    width: auto !important;
+  }
+
+  #sad-scientific-calculator-toggle { right: 58px !important; }
+}
+
+/* Final local selection state for Sparx's div[role=button] answer choices.
+   The check and contrast remain visible even when React redraws its own option
+   surface immediately after a click. */
+:root.sad-enabled [role="button"].sad-choice-selected,
+:root.sad-enabled [role="option"].sad-choice-selected,
+:root.sad-enabled [role="radio"].sad-choice-selected,
+:root.sad-enabled button.sad-choice-selected,
+:root.sad-enabled label.sad-choice-selected {
+  background: color-mix(in srgb, var(--sad-action) 78%, var(--sad-surface)) !important;
+  border: 3px solid var(--sad-accent) !important;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--sad-text) 35%, transparent), 0 0 0 3px color-mix(in srgb, var(--sad-accent) 34%, transparent) !important;
+  color: var(--sad-text) !important;
+  isolation: isolate !important;
+  position: relative !important;
+}
+
+:root.sad-enabled :is([role="button"], [role="option"], [role="radio"], button, label).sad-choice-selected,
+:root.sad-enabled :is([role="button"], [role="option"], [role="radio"], button, label).sad-choice-selected * {
+  color: var(--sad-text) !important;
+}
+
+:root.sad-enabled :is([role="button"], [role="option"], [role="radio"], button, label).sad-choice-selected::after {
+  align-items: center !important;
+  background: var(--sad-accent) !important;
+  border: 2px solid color-mix(in srgb, var(--sad-surface) 68%, transparent) !important;
+  border-radius: 999px !important;
+  box-shadow: 0 2px 7px rgba(0,0,0,.28) !important;
+  color: #202124 !important;
+  content: "✓" !important;
+  display: inline-flex !important;
+  font-family: ui-sans-serif, system-ui, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 900 !important;
+  height: 24px !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+  min-height: 24px !important;
+  position: absolute !important;
+  right: 7px !important;
+  top: 7px !important;
+  width: 24px !important;
+  z-index: 2 !important;
+}

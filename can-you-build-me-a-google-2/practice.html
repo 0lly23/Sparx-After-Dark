@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="practice.css">
+  <title>After Dark Practice</title>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="mark" aria-hidden="true">∑</div>
+      <div>
+        <p class="eyebrow">Sparx After Dark</p>
+        <h1>Practice mode</h1>
+      </div>
+    </div>
+    <p class="offline-note">Original questions · works offline</p>
+  </header>
+
+  <main class="page">
+    <section class="hero" aria-labelledby="practice-title">
+      <p class="eyebrow">Your own revision space</p>
+      <h2 id="practice-title">Keep practising without touching your homework.</h2>
+      <p>Choose your level, topics, and calculator setting. These questions are generated in this extension and are not connected to Sparx.</p>
+    </section>
+
+    <div class="workspace">
+      <form id="settings" class="panel settings-panel" aria-label="Practice settings">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Question filters</p>
+            <h2>Build a set</h2>
+          </div>
+          <span class="settings-icon" aria-hidden="true">⚙</span>
+        </div>
+
+        <fieldset>
+          <legend>Qualification</legend>
+          <div class="choice-stack">
+            <label class="choice"><input type="radio" name="qualification" value="foundation" checked><span><strong>GCSE Foundation</strong><small>Core skills and approachable numbers</small></span></label>
+            <label class="choice"><input type="radio" name="qualification" value="higher"><span><strong>GCSE Higher</strong><small>More multi-step and higher-tier questions</small></span></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Calculator</legend>
+          <div class="calculator-grid">
+            <label class="pill-choice"><input type="radio" name="calculator" value="non-calculator"><span>Non-calculator</span></label>
+            <label class="pill-choice"><input type="radio" name="calculator" value="calculator"><span>Calculator</span></label>
+            <label class="pill-choice"><input type="radio" name="calculator" value="either" checked><span>Either</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Topics <span class="legend-hint">Choose one or more</span></legend>
+          <div class="topic-grid">
+            <label class="topic-choice"><input type="checkbox" name="topic" value="number" checked><span>Number</span></label>
+            <label class="topic-choice"><input type="checkbox" name="topic" value="algebra" checked><span>Algebra</span></label>
+            <label class="topic-choice"><input type="checkbox" name="topic" value="ratio" checked><span>Ratio</span></label>
+            <label class="topic-choice"><input type="checkbox" name="topic" value="geometry" checked><span>Geometry</span></label>
+            <label class="topic-choice"><input type="checkbox" name="topic" value="statistics" checked><span>Statistics</span></label>
+            <label class="topic-choice"><input type="checkbox" name="topic" value="probability" checked><span>Probability</span></label>
+          </div>
+        </fieldset>
+
+        <p id="settingsNotice" class="settings-notice" role="status" aria-live="polite"></p>
+        <button class="primary-button" type="submit">New question <span aria-hidden="true">→</span></button>
+      </form>
+
+      <section class="panel question-panel" aria-labelledby="question-heading">
+        <div class="question-topline">
+          <div class="question-tags"><span id="questionTopic" class="tag">Number</span><span id="questionMode" class="tag muted-tag">Non-calculator</span></div>
+          <span id="questionLevel" class="level-label">GCSE Foundation</span>
+        </div>
+        <p class="eyebrow">Your question</p>
+        <h2 id="question-heading">Ready when you are</h2>
+        <p id="questionText" class="question-text"></p>
+        <p id="answerHint" class="answer-hint"></p>
+
+        <form id="answerForm" class="answer-form">
+          <label for="answer">Your answer</label>
+          <div class="answer-actions">
+            <input id="answer" name="answer" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" placeholder="Type your answer">
+            <button id="checkAnswer" class="primary-button" type="submit">Check</button>
+          </div>
+        </form>
+
+        <div id="feedback" class="feedback" role="status" aria-live="polite" hidden></div>
+        <div id="solution" class="solution" hidden>
+          <strong>How to work it out</strong>
+          <p id="explanation"></p>
+        </div>
+        <div class="question-footer">
+          <button id="revealAnswer" class="text-button" type="button">Show answer</button>
+          <button id="nextQuestion" class="secondary-button" type="button">Skip to another question <span aria-hidden="true">→</span></button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>Practice mode is local to this extension. It never changes your Sparx homework, progress, or account.</footer>
+  <script src="practice.js"></script>
+</body>
+</html>

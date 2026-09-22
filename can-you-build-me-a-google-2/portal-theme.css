@@ -1,0 +1,263 @@
+/* A deliberately small visual layer for Sparx's sign-in and school portals. */
+:root.sad-portal {
+  color-scheme: dark;
+}
+
+:root.sad-portal,
+:root.sad-portal body,
+:root.sad-portal #root {
+  background: radial-gradient(circle at 50% -12%, color-mix(in srgb, var(--sad-accent) 14%, var(--sad-bg)), var(--sad-bg) 52%) !important;
+  color: var(--sad-text) !important;
+  font-family: var(--sad-font) !important;
+  min-height: 100% !important;
+}
+
+:root.sad-portal h1,
+:root.sad-portal h2,
+:root.sad-portal h3,
+:root.sad-portal p,
+:root.sad-portal label {
+  color: var(--sad-text) !important;
+}
+
+/* Sign-in: only credential forms and submit actions are themed. */
+:root.sad-portal.sad-auth-portal .sad-credential-form {
+  background: var(--sad-surface) !important;
+  background-image: none !important;
+  border: 1px solid rgba(255,255,255,.14) !important;
+  border-radius: calc(var(--sad-radius) + 4px) !important;
+  box-shadow: 0 22px 48px rgba(0,0,0,.30) !important;
+  box-sizing: border-box !important;
+  color: var(--sad-text) !important;
+}
+
+:root.sad-portal.sad-auth-portal .sad-credential-form input,
+:root.sad-portal.sad-auth-portal .sad-credential-form select,
+:root.sad-portal.sad-auth-portal .sad-credential-form textarea,
+:root.sad-portal.sad-school-portal .sad-school-picker-form input,
+:root.sad-portal.sad-school-portal .sad-school-picker-form select {
+  background: color-mix(in srgb, var(--sad-bg) 90%, #000) !important;
+  border: 1px solid rgba(255,255,255,.18) !important;
+  border-radius: calc(var(--sad-radius) - 3px) !important;
+  box-shadow: none !important;
+  color: var(--sad-text) !important;
+}
+
+:root.sad-portal.sad-auth-portal .sad-credential-form input:focus,
+:root.sad-portal.sad-auth-portal .sad-credential-form select:focus,
+:root.sad-portal.sad-auth-portal .sad-credential-form textarea:focus,
+:root.sad-portal.sad-school-portal .sad-school-picker-form input:focus,
+:root.sad-portal.sad-school-portal .sad-school-picker-form select:focus {
+  border-color: var(--sad-accent) !important;
+  outline: 3px solid color-mix(in srgb, var(--sad-accent) 32%, transparent) !important;
+  outline-offset: 1px !important;
+}
+
+:root.sad-portal.sad-auth-portal .sad-credential-form button[type="submit"],
+:root.sad-portal.sad-auth-portal .sad-credential-form input[type="submit"],
+:root.sad-portal.sad-school-portal .sad-school-picker-form button[type="submit"],
+:root.sad-portal.sad-school-portal .sad-school-picker-form input[type="submit"] {
+  background: var(--sad-accent) !important;
+  border: 0 !important;
+  border-radius: calc(var(--sad-radius) - 3px) !important;
+  box-shadow: none !important;
+  color: #202124 !important;
+  font-family: inherit !important;
+  font-weight: 800 !important;
+}
+
+:root.sad-portal a {
+  color: var(--sad-accent) !important;
+}
+
+/* OAuth sign-in: style the visible portal shell and cards without touching
+   provider actions, credentials, redirects, or form state. */
+:root.sad-portal.sad-auth-portal .sad-auth-page-shell {
+  background: radial-gradient(circle at 50% -12%, color-mix(in srgb, var(--sad-accent) 14%, var(--sad-bg)), var(--sad-bg) 52%) !important;
+  background-image: radial-gradient(circle at 50% -12%, color-mix(in srgb, var(--sad-accent) 14%, var(--sad-bg)), var(--sad-bg) 52%) !important;
+  color: var(--sad-text) !important;
+  min-height: 100vh !important;
+}
+
+:root.sad-portal.sad-auth-portal .sad-auth-page-shell,
+:root.sad-portal.sad-auth-portal .sad-auth-page-shell :is(h1, h2, h3, h4, h5, h6, p, div, span, strong, b, em, small, label, li, a) {
+  color: var(--sad-text) !important;
+}
+
+:root.sad-portal.sad-auth-portal .sad-auth-accent-strip {
+  background: var(--sad-accent) !important;
+  background-image: none !important;
+}
+
+:root.sad-portal.sad-auth-portal .sad-auth-login-card,
+:root.sad-portal.sad-auth-portal .sad-auth-school-banner {
+  background: var(--sad-surface) !important;
+  background-image: none !important;
+  border: 1px solid rgba(255,255,255,.14) !important;
+  border-radius: calc(var(--sad-radius) + 2px) !important;
+  box-shadow: 0 16px 34px rgba(0,0,0,.24) !important;
+  color: var(--sad-text) !important;
+}
+
+/* Current hosted sign-in markup.  These are intentionally scoped to the
+   authentication host and only restyle visual surfaces. */
+:root.sad-portal.sad-auth-portal form.um-login-box,
+:root.sad-portal.sad-auth-portal #login-form {
+  background: var(--sad-surface) !important;
+  background-image: none !important;
+  border: 1px solid rgba(255,255,255,.14) !important;
+  border-radius: calc(var(--sad-radius) + 2px) !important;
+  box-shadow: 0 16px 34px rgba(0,0,0,.24) !important;
+  color: var(--sad-text) !important;
+}
+
+:root.sad-portal.sad-auth-portal form.um-login-box > :not(input):not(button) {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+:root.sad-portal.sad-auth-portal #school-switcher {
+  background: color-mix(in srgb, var(--sad-surface) 88%, var(--sad-bg)) !important;
+  background-image: none !important;
+  border: 1px solid rgba(255,255,255,.14) !important;
+  border-radius: calc(var(--sad-radius) - 2px) !important;
+  box-shadow: none !important;
+  color: var(--sad-text) !important;
+}
+
+:root.sad-portal.sad-auth-portal .top-bar {
+  background: var(--sad-accent) !important;
+  background-image: none !important;
+}
+
+:root.sad-portal.sad-auth-portal :is(.login-header, .sso-options-container, .sso-button-container, .ms-button, .sso-login-button) {
+  color: var(--sad-text) !important;
+}
+
+:root.sad-portal.sad-auth-portal :is(.ms-button, .sso-login-button) {
+  background: var(--sad-accent) !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-radius: calc(var(--sad-radius) - 3px) !important;
+  box-shadow: none !important;
+  color: #202124 !important;
+}
+
+:root.sad-portal.sad-auth-portal :is(.ms-button, .sso-login-button) :is(span, strong, b) {
+  color: #202124 !important;
+}
+
+:root.sad-portal.sad-auth-portal footer,
+:root.sad-portal.sad-auth-portal footer * {
+  color: var(--sad-text) !important;
+}
+
+:root.sad-portal.sad-auth-portal .sad-auth-school-banner {
+  background: color-mix(in srgb, var(--sad-surface) 88%, var(--sad-bg)) !important;
+  box-shadow: none !important;
+}
+
+:root.sad-portal.sad-auth-portal .sad-auth-school-banner a {
+  color: var(--sad-accent) !important;
+}
+
+:root.sad-portal.sad-auth-portal .sad-auth-provider-button {
+  background: var(--sad-accent) !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-radius: calc(var(--sad-radius) - 3px) !important;
+  box-shadow: none !important;
+  color: #202124 !important;
+  font-family: inherit !important;
+  font-weight: 800 !important;
+}
+
+:root.sad-portal.sad-auth-portal .sad-auth-provider-button :is(span, strong, b) {
+  color: #202124 !important;
+}
+
+/* School choice: the picker is tagged by portal-content.js once it is rendered. */
+:root.sad-portal.sad-school-portal .sad-school-page-shell {
+  background: radial-gradient(circle at 50% -12%, color-mix(in srgb, var(--sad-accent) 14%, var(--sad-bg)), var(--sad-bg) 52%) !important;
+  background-image: radial-gradient(circle at 50% -12%, color-mix(in srgb, var(--sad-accent) 14%, var(--sad-bg)), var(--sad-bg) 52%) !important;
+  color: var(--sad-text) !important;
+  min-height: 100vh !important;
+}
+
+/* The selector page renders many labels as ordinary divs, so inherit the
+   chosen Text colour across its visible shell rather than just headings. */
+:root.sad-portal.sad-school-portal .sad-school-page-shell,
+:root.sad-portal.sad-school-portal .sad-school-page-shell :is(h1, h2, h3, h4, h5, h6, p, div, span, strong, b, em, small, label, li, a) {
+  color: var(--sad-text) !important;
+}
+
+:root.sad-portal.sad-school-portal .sad-school-picker-form,
+:root.sad-portal.sad-school-portal .sad-school-picker-card,
+:root.sad-portal.sad-school-portal .sad-school-results,
+:root.sad-portal.sad-school-portal [role="listbox"] {
+  background: var(--sad-surface) !important;
+  background-image: none !important;
+  border: 1px solid rgba(255,255,255,.14) !important;
+  border-radius: calc(var(--sad-radius) + 2px) !important;
+  box-shadow: 0 16px 34px rgba(0,0,0,.24) !important;
+  color: var(--sad-text) !important;
+}
+
+:root.sad-portal.sad-school-portal .sad-school-picker-card > :not(input):not(select):not(button),
+:root.sad-portal.sad-school-portal .sad-school-results > * {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+:root.sad-portal.sad-school-portal .sad-school-picker-card :is(h1, h2, h3, p, label, span, strong, small),
+:root.sad-portal.sad-school-portal .sad-school-results :is(h1, h2, h3, p, label, span, strong, small) {
+  color: var(--sad-text) !important;
+}
+
+/* Search-match fragments should read like normal text, rather than showing
+   the page's stark white blocks behind individual letters. */
+:root.sad-portal.sad-school-portal .sad-school-results :is(div, span, strong, b, em, mark, small) {
+  background-color: transparent !important;
+  background-image: none !important;
+  color: var(--sad-text) !important;
+}
+
+:root.sad-portal.sad-school-portal .sad-school-search-input,
+:root.sad-portal.sad-school-portal .sad-school-picker-card input,
+:root.sad-portal.sad-school-portal .sad-school-picker-card select {
+  background: color-mix(in srgb, var(--sad-bg) 90%, #000) !important;
+  background-image: none !important;
+  border-color: rgba(255,255,255,.20) !important;
+  border-radius: calc(var(--sad-radius) - 3px) !important;
+  box-shadow: none !important;
+  color: var(--sad-text) !important;
+}
+
+:root.sad-portal.sad-school-portal .sad-school-search-input:focus,
+:root.sad-portal.sad-school-portal .sad-school-picker-card input:focus,
+:root.sad-portal.sad-school-portal .sad-school-picker-card select:focus {
+  border-color: var(--sad-accent) !important;
+  outline: 3px solid color-mix(in srgb, var(--sad-accent) 32%, transparent) !important;
+  outline-offset: 1px !important;
+}
+
+:root.sad-portal.sad-school-portal .sad-school-search-input::placeholder,
+:root.sad-portal.sad-school-portal .sad-school-picker-card input::placeholder {
+  color: color-mix(in srgb, var(--sad-text) 58%, transparent) !important;
+  opacity: 1 !important;
+}
+
+:root.sad-portal.sad-school-portal [role="option"],
+:root.sad-portal.sad-school-portal .sad-school-result-row {
+  background: transparent !important;
+  background-image: none !important;
+  border-color: rgba(255,255,255,.10) !important;
+  border-radius: calc(var(--sad-radius) - 4px) !important;
+  color: var(--sad-text) !important;
+}
+
+:root.sad-portal.sad-school-portal [role="option"]:hover,
+:root.sad-portal.sad-school-portal [role="option"][aria-selected="true"],
+:root.sad-portal.sad-school-portal .sad-school-result-row:hover {
+  background: color-mix(in srgb, var(--sad-surface) 84%, var(--sad-accent)) !important;
+}

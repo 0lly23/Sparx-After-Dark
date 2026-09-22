@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Sparx After Dark",
+  "version": "1.2.0",
+  "description": "A clean, customisable dark visual theme for Sparx Maths.",
+  "permissions": ["storage"],
+  "action": {
+    "default_title": "Sparx After Dark",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.sparxmaths.com/*",
+        "https://sparxmaths.com/*",
+        "https://maths.sparx-learning.com/*"
+      ],
+      "js": ["scientific-calculator.js", "content.js"],
+      "css": ["theme.css"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://auth.sparx-learning.com/*",
+        "https://selectschool.sparx-learning.com/*"
+      ],
+      "js": ["portal-content.js"],
+      "css": ["portal-theme.css"],
+      "run_at": "document_start"
+    }
+  ]
+}

@@ -35,9 +35,11 @@ Gallery:
 
 <img width="2559" height="1318" alt="Screenshot 2026-09-22 214755" src="https://github.com/user-attachments/assets/ea7d14d5-0b62-4a4c-b46e-ebab6609211b" />
 
-<img width="2559" height="1314" alt="image" src="https://github.com/user-attachments/assets/3e3db069-d0ab-4d2c-b63b-40e3d3b81bcc" />
+<img width="2559" height="1314" alt="Screenshot 2026-09-22 214856" src="https://github.com/user-attachments/assets/eda20095-16eb-4611-82bf-9fff7584b317" />
 
-<img width="2559" height="1318" alt="Screenshot 2026-09-22 215109" src="https://github.com/user-attachments/assets/cb32e803-c35d-45f7-a405-aff281ddfa08" />
+<img width="2559" height="1318" alt="Screenshot 2026-09-22 215109" src="https://github.com/user-attachments/assets/c54ca334-d398-47af-aab5-1e39210a7e76" />
+
+
 
 Personalisation options:
   You can:

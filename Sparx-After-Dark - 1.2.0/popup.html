@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="popup.css"><title>Sparx After Dark</title></head>
+<body>
+  <header><div class="mark">S</div><div><h1>Sparx After Dark</h1><p>Make practice feel focused.</p></div></header>
+  <main>
+    <label class="switch-row"><span>Enable theme</span><input id="enabled" type="checkbox"><i></i></label>
+    <label class="field">Theme style<select id="preset">
+      <option value="monkeytype">Monkeytype Gold</option>
+      <option value="navyGold">NKS</option>
+      <option value="ocean">Deep Ocean</option>
+      <option value="aurora">Aurora</option>
+      <option value="amethyst">Amethyst</option>
+      <option value="custom">Custom</option>
+    </select></label>
+    <div class="palette">
+      <label>Accent <input id="accent" type="color"></label>
+      <label>Background <input id="background" type="color"></label>
+      <label>Surface <input id="surface" type="color"></label>
+      <label>Text <input id="text" type="color"></label>
+      <label>Top ribbon <input id="ribbon" type="color"></label>
+      <label>Start buttons <input id="action" type="color"></label>
+      <label>Correct feedback <input id="correct" type="color"></label>
+      <label>Incorrect feedback <input id="incorrect" type="color"></label>
+    </div>
+    <label class="field">Roundness <output id="radiusValue"></output><input id="radius" type="range" min="4" max="28" step="1"></label>
+    <label class="field">Typeface<select id="font">
+      <optgroup label="Modern">
+        <option value="Nunito Sans, ui-rounded, system-ui, sans-serif">Rounded</option>
+        <option value="Inter, system-ui, sans-serif">Clean sans</option>
+        <option value="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">System UI</option>
+        <option value="'Arial Nova', 'Helvetica Neue', Arial, sans-serif">Neo grotesk</option>
+        <option value="Bahnschrift, 'Arial Narrow', Arial, sans-serif">Geometric</option>
+        <option value="Candara, Calibri, 'Segoe UI', sans-serif">Soft humanist</option>
+      </optgroup>
+      <optgroup label="Vintage">
+        <option value="Georgia, 'Times New Roman', serif">Classic serif</option>
+        <option value="'Palatino Linotype', 'Book Antiqua', Palatino, serif">Bookish</option>
+        <option value="'Courier New', Courier, monospace">Retro typewriter</option>
+        <option value="Century, Georgia, serif">Schoolbook</option>
+        <option value="'Times New Roman', Times, serif">Newspaper</option>
+      </optgroup>
+      <optgroup label="Playful">
+        <option value="'Trebuchet MS', Arial, sans-serif">Friendly</option>
+        <option value="'Comic Sans MS', 'Comic Sans', cursive">Playful handwritten</option>
+        <option value="'Segoe Print', 'Comic Sans MS', cursive">Sketchbook</option>
+        <option value="Impact, 'Arial Black', sans-serif">Poster bold</option>
+      </optgroup>
+      <optgroup label="Utility">
+        <option value="ui-monospace, SFMono-Regular, Consolas, monospace">Mono</option>
+      </optgroup>
+    </select></label>
+    <label class="check"><input id="compact" type="checkbox"> Compact cards</label>
+    <label class="check"><input id="shadows" type="checkbox"> Card shadows</label>
+    <label class="check"><input id="dimImages" type="checkbox"> Dim bright images</label>
+    <label class="check"><input id="reduceMotion" type="checkbox"> Reduce motion</label>
+    <label class="check"><input id="calmErrors" type="checkbox"> Soften correct / incorrect colours</label>
+    <label class="check"><input id="showCalculatorBadges" type="checkbox"> Show verified calculator badges on question tabs</label>
+    <label class="check"><input id="scientificCalculator" type="checkbox"> Scientific calculator on calculator-allowed questions</label>
+    <label class="check"><input id="scientificCalculatorOnNonCalculator" type="checkbox"> Also show it on calculator-not-allowed questions (permission required)</label>
+    <label class="check"><input id="studyGuide" type="checkbox"> Show local Stuck? guide on questions</label>
+    <label class="check"><input id="answerJournal" type="checkbox"> Keep a local answer journal</label>
+    <a class="practice-launch" href="practice.html" target="_blank" rel="noopener">Open Practice mode <span aria-hidden="true">↗</span></a>
+    <a class="practice-launch" href="calculator.html" target="_blank" rel="noopener">Open Study calculator <span aria-hidden="true">↗</span></a>
+    <section class="share" aria-label="Theme share code">
+      <strong>Share theme</strong>
+      <p>Generate a code to copy, or paste one here to import its colours and layout.</p>
+      <textarea id="shareCode" rows="3" spellcheck="false" placeholder="SAD1:…"></textarea>
+      <div class="share-actions"><button id="generateCode" type="button">Generate &amp; copy</button><button id="applyCode" type="button">Apply code</button></div>
+      <output id="shareStatus" aria-live="polite"></output>
+    </section>
+    <button id="reset" type="button">Reset to Monkeytype</button>
+  </main>
+  <footer>Visual changes only · Your work stays untouched</footer>
+  <script src="popup.js"></script>
+</body></html>

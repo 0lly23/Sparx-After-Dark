@@ -1,3 +1,5 @@
+WARNING - VIBECODED
+
 This is a Chromium extention for Sparx Maths, adding features which Sparx would never add:
 DISCLAMER: This project was made with AI, I only provided it with prompts and HTML tags to aid with the debugging process - Ctrl + I.
 
